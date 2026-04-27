@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+
+const phone = "(801) 514-7004";
+const phoneHref = "tel:+18015147004";
+---
+
+<BaseLayout
+  title="Contact Us | Sandy Roofing Pros — Sandy, UT"
+  description="Contact Sandy Roofing Pros for emergency roof leak repair or storm damage help in Sandy, Utah and Salt Lake County. Call now or fill out our free estimate form."
+  canonicalUrl="/contact"
+>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Contact Sandy Roofing Pros</h1>
+      <p>
+        Roof emergency? Need a free estimate? We're here to help.
+        Call us now or fill out the form below and we'll connect you with
+        a licensed local contractor right away.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Split -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-split">
+
+        <!-- Left: Contact Info -->
+        <div class="contact-info">
+          <h2>Get Help Fast</h2>
+          <p>
+            For active roof leaks or urgent storm damage, <strong>calling is the fastest
+            way to get help.</strong> Our contractors answer the phone and can often
+            dispatch same-day.
+          </p>
+
+          <a href={phoneHref} class="contact-info__phone" aria-label="Call Sandy Roofing Pros">
+            📞 {phone}
+          </a>
+
+          <p>
+            <strong>Available 24/7</strong> — including nights, weekends, and holidays
+            for emergency roof situations.
+          </p>
+
+          <div style="margin-top:1.5rem;">
+            <h3 style="margin-bottom:0.5rem;">What Happens When You Call?</h3>
+            <ol style="padding-left:1.25rem; color:#64748B; font-size:0.95rem; line-height:2;">
+              <li>You describe your roof problem to our team</li>
+              <li>We match you with a licensed local contractor in your area</li>
+              <li>The contractor calls you back — typically within minutes</li>
+              <li>They schedule a same-day visit and provide a free written estimate</li>
+            </ol>
+          </div>
+
+          <div class="contact-info__note">
+            <strong>Not an emergency?</strong> No problem. Use the form to describe
+            your situation and a contractor will follow up with you during normal
+            business hours.
+          </div>
+
+          <div style="margin-top:2rem;">
+            <h3 style="margin-bottom:0.75rem;">Service Area</h3>
+            <p style="color:#64748B; font-size:0.9rem;">
+              We serve homeowners throughout <strong>Salt Lake County, Utah</strong> — including
+              Sandy, Draper, South Jordan, Murray, Midvale, West Jordan, and Salt Lake City.
+            </p>
+            <a href="/service-area" style="font-size:0.9rem;">View Full Service Area →</a>
+          </div>
+        </div>
+
+        <!-- Right: Lead Form -->
+        <div>
+          <LeadForm
+            title="Send Us Your Information"
+            subtitle="A licensed contractor will follow up with you quickly — free of charge."
+            elementId="contact-form"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency CTA -->
+  <section class="cta-strip">
+    <div class="container">
+      <h2>Roof Leaking Right Now?</h2>
+      <p>Don't wait — every minute counts when water is coming in. Call us immediately.</p>
+      <div class="cta-strip__actions">
+        <a href={phoneHref} class="btn btn--accent btn--lg">
+          📞 Call {phone} — Available 24/7
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+
+const phone = "(801) 514-7004";
+const phoneHref = "tel:+18015147004";
+
+const cities = [
+  {
+    name: "Sandy",
+    state: "UT",
+    desc: "Our home base. We serve every neighborhood in Sandy — from Big Cottonwood Canyon Road to 9000 South and beyond. If you're in Sandy with a roof problem, we respond fast.",
+    zip: "84070",
+  },
+  {
+    name: "Draper",
+    state: "UT",
+    desc: "Draper homes face intense sun exposure and hail events from summer storms. We serve all of Draper, including newer developments along Bangerter Highway and the foothills.",
+    zip: "84020",
+  },
+  {
+    name: "South Jordan",
+    state: "UT",
+    desc: "South Jordan's newer housing stock can still suffer storm damage and flashing failures. We cover the Daybreak community and all South Jordan neighborhoods.",
+    zip: "84009",
+  },
+  {
+    name: "Murray",
+    state: "UT",
+    desc: "Murray's established neighborhoods and mid-century homes often have older roofing systems due for inspection or repair. We serve all of Murray, UT.",
+    zip: "84107",
+  },
+  {
+    name: "Midvale",
+    state: "UT",
+    desc: "Midvale homeowners facing emergency leaks or storm damage get the same fast response as our other service cities. Coverage throughout the 84047 zip code.",
+    zip: "84047",
+  },
+  {
+    name: "West Jordan",
+    state: "UT",
+    desc: "West Jordan is one of the fastest-growing cities in Salt Lake County. We serve the entire West Jordan area, from established neighborhoods to new builds.",
+    zip: "84084",
+  },
+  {
+    name: "Salt Lake City",
+    state: "UT",
+    desc: "From the Avenues to Sugar House, Capitol Hill to Rose Park — we connect Salt Lake City homeowners with local roofing contractors available same-day.",
+    zip: "84101",
+  },
+];
+---
+
+<BaseLayout
+  title="Service Area | Sandy Roofing Pros — Sandy, UT"
+  description="Sandy Roofing Pros serves Sandy, Draper, South Jordan, Murray, Midvale, West Jordan, and Salt Lake City. Emergency roof repair across all of Salt Lake County, Utah."
+  canonicalUrl="/service-area"
+>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Roofing Service Area — Salt Lake County, Utah</h1>
+      <p>
+        We connect homeowners across Salt Lake County with licensed local roofing
+        contractors. Same-day emergency response available throughout our service area.
+      </p>
+    </div>
+  </section>
+
+  <!-- Cities Grid -->
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Coverage Area</span>
+        <h2>Cities We Serve</h2>
+        <p>
+          Our roofing contractor network covers the following communities. Don't see
+          your city? Call us — we may still be able to help.
+        </p>
+      </div>
+
+      <div class="city-grid">
+        {cities.map((city) => (
+          <div class="city-card">
+            <h3>{city.name}, {city.state} <span style="font-weight:400; color:#94A3B8; font-size:0.85rem;">{city.zip}</span></h3>
+            <p>{city.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Local Matters -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Why It Matters</span>
+        <h2>Local Roofers Know Utah's Climate</h2>
+        <p>
+          A roofer who works in Salt Lake County every day understands the specific
+          challenges Utah weather throws at roofs — and they're just minutes away when
+          you need them.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-card__icon">❄️</div>
+          <h3>Utah Snow &amp; Ice Load</h3>
+          <p>
+            Salt Lake County can receive 4–6 feet of snowfall annually. Heavy snowpack
+            adds significant weight stress to roofs and ice dams can force water under
+            shingles during the melt cycle.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon">⛈️</div>
+          <h3>Summer Hail &amp; Thunderstorms</h3>
+          <p>
+            The Wasatch Front sees intense summer storms with large hail capable of
+            puncturing shingles, denting metal flashing, and knocking off granule
+            coating — damage that's invisible from the ground.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon">☀️</div>
+          <h3>High Desert UV Exposure</h3>
+          <p>
+            Sandy and the surrounding area sit at 4,500+ feet elevation with intense
+            UV radiation. This accelerates shingle aging, causing cracking and curling
+            that leads to leaks well ahead of schedule.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-strip">
+    <div class="container">
+      <h2>Is Your Home in Our Service Area?</h2>
+      <p>
+        Call us now or submit the form below to get connected with a licensed local
+        roofing contractor. Free estimates, no obligation.
+      </p>
+      <div class="cta-strip__actions">
+        <a href={phoneHref} class="btn btn--accent btn--lg">
+          📞 {phone}
+        </a>
+        <a href="#contact-form" class="btn btn--outline btn--lg">
+          Submit a Request
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Form -->
+  <section class="section section--alt" id="contact-form">
+    <div class="container">
+      <LeadForm
+        title="Request Roofing Help in Your Area"
+        subtitle="Tell us your city and describe your roof issue — we'll get you connected fast."
+      />
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+
+const phone = "(801) 514-7004";
+const phoneHref = "tel:+18015147004";
+---
+
+<BaseLayout
+  title="Roofing Services | Sandy Roofing Pros — Sandy, UT"
+  description="Emergency roof leak repair, storm damage restoration, and roof inspections serving Sandy and Salt Lake County, Utah. Licensed local contractors available 24/7."
+  canonicalUrl="/services"
+>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Roofing Services — Sandy &amp; Salt Lake County, UT</h1>
+      <p>
+        From active leaks to storm-damaged shingles to pre-purchase inspections,
+        we connect you with the right local contractor for the job.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== EMERGENCY LEAK REPAIR ===== -->
+  <section class="service-section" id="emergency-leak">
+    <div class="container">
+      <div class="service-section__inner">
+        <div>
+          <div class="service-section__icon">🚨</div>
+          <span class="service-section__badge">Most Urgent</span>
+          <h2>Emergency Roof Leak Repair</h2>
+          <p>
+            A leaking roof is one of the most stressful things a homeowner can face —
+            especially in the middle of the night or during a storm. Water gets in fast
+            and the damage compounds quickly: soaked insulation, ruined drywall, warped
+            wood, and eventually mold.
+          </p>
+          <p>
+            Our contractor network is available <strong>24 hours a day, 7 days a week</strong>
+            to respond to active roof leaks throughout Sandy and Salt Lake County. When you
+            call, you'll reach someone who can dispatch help quickly — not a voicemail.
+          </p>
+          <ul class="service-bullets">
+            <li>Active leak response — day or night</li>
+            <li>Emergency tarping to stop water intrusion immediately</li>
+            <li>Locate the source of the leak (not just patch symptoms)</li>
+            <li>Full repair options discussed on-site</li>
+            <li>Documentation for homeowner's insurance claims</li>
+            <li>Serving Sandy, Draper, Murray, Midvale &amp; surrounding areas</li>
+          </ul>
+          <a href={phoneHref} class="btn btn--primary btn--lg">
+            📞 Call Now for Emergency Help
+          </a>
+        </div>
+        <div>
+          <div style="background:#FEF2F2; border:1px solid #FECACA; border-radius:8px; padding:2rem;">
+            <h3 style="color:#B91C1C; margin-bottom:1rem;">Signs You Need Emergency Repair Now</h3>
+            <ul class="service-bullets">
+              <li>Water dripping from ceiling or light fixtures</li>
+              <li>Water stain spreading on ceiling or walls</li>
+              <li>Visible daylight through the roof boards</li>
+              <li>Sagging ceiling after heavy rain or snow</li>
+              <li>Musty smell in attic after precipitation</li>
+              <li>Missing shingles after a storm</li>
+            </ul>
+            <p style="margin-top:1rem; font-size:0.9rem; color:#7F1D1D;">
+              <strong>Don't wait.</strong> Every hour of delay allows more water to enter your home.
+              Call us now for same-day help.
+            </p>
+            <a href={phoneHref} class="btn btn--primary btn--block" style="margin-top:1rem;">
+              📞 {phone}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STORM DAMAGE REPAIR ===== -->
+  <section class="service-section" id="storm-damage">
+    <div class="container">
+      <div class="service-section__inner">
+        <div>
+          <div style="background:#FFFBEB; border:1px solid #FDE68A; border-radius:8px; padding:2rem;">
+            <h3 style="color:#92400E; margin-bottom:1rem;">Does Your Home Qualify for an Insurance Claim?</h3>
+            <p style="font-size:0.9rem; color:#78350F; margin-bottom:1rem;">
+              Utah homeowners are often surprised to learn that storm-damaged roofs are
+              covered by standard homeowner's insurance. Our contractors can:
+            </p>
+            <ul class="service-bullets">
+              <li>Document hail and wind damage with photos and measurements</li>
+              <li>Provide a written damage report for your insurer</li>
+              <li>Meet with your adjuster on-site if needed</li>
+              <li>Communicate directly with insurance companies</li>
+            </ul>
+            <a href="#contact-section" class="btn btn--accent btn--block" style="margin-top:1.25rem; color:#1E293B;">
+              Get a Free Damage Assessment
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="service-section__icon">🌩️</div>
+          <span class="service-section__badge">Insurance-Assisted</span>
+          <h2>Storm Damage Roof Repair</h2>
+          <p>
+            Utah experiences some of the most damaging weather in the West — including
+            severe hail, high-wind events, and heavy snowpack that stresses aging roofs.
+            After a storm, damage isn't always visible from the ground, but it can silently
+            shorten the life of your roof by years.
+          </p>
+          <p>
+            Our network of licensed contractors specializes in storm damage assessment and
+            repair. They know how to document damage properly, work with your insurance
+            adjuster, and complete repairs to manufacturer and Utah code standards.
+          </p>
+          <ul class="service-bullets">
+            <li>Hail damage assessment and shingle replacement</li>
+            <li>Wind damage repair — lifted, missing, and curled shingles</li>
+            <li>Gutter damage and flashing repair</li>
+            <li>Chimney and skylight re-sealing after storm impact</li>
+            <li>Full roof replacement if total loss is documented</li>
+            <li>Post-storm inspection to catch hidden damage early</li>
+          </ul>
+          <a href={phoneHref} class="btn btn--primary btn--lg">
+            📞 Get a Free Storm Assessment
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROOF INSPECTION ===== -->
+  <section class="service-section" id="roof-inspection">
+    <div class="container">
+      <div class="service-section__inner">
+        <div>
+          <div class="service-section__icon">🔍</div>
+          <span class="service-section__badge">Preventative</span>
+          <h2>Roof Inspections</h2>
+          <p>
+            The best time to find a roof problem is before it becomes a crisis. A professional
+            roof inspection gives you a detailed picture of your roof's current condition —
+            what's working, what's worn, and what needs attention before the next Utah winter
+            or storm season.
+          </p>
+          <p>
+            Whether you're buying a new home, preparing to sell, managing a rental property,
+            or simply haven't had your roof checked in a few years, our contractors provide
+            thorough, documented inspections with no upsell pressure.
+          </p>
+          <ul class="service-bullets">
+            <li>Full shingle-by-shingle inspection from the roof surface</li>
+            <li>Attic inspection for moisture, ventilation, and insulation issues</li>
+            <li>Flashing, valley, and gutter inspection</li>
+            <li>Chimney and skylight seal check</li>
+            <li>Written report with photos — ideal for home buyers and sellers</li>
+            <li>Remaining lifespan estimate</li>
+            <li>Insurance documentation if damage is found</li>
+          </ul>
+          <a href={phoneHref} class="btn btn--primary btn--lg">
+            📞 Schedule a Roof Inspection
+          </a>
+        </div>
+        <div>
+          <div style="background:#F0FDF4; border:1px solid #BBF7D0; border-radius:8px; padding:2rem;">
+            <h3 style="color:#14532D; margin-bottom:1rem;">When Should You Get an Inspection?</h3>
+            <ul class="service-bullets">
+              <li>Before buying or selling a home</li>
+              <li>After any significant storm or hail event</li>
+              <li>If your roof is 10+ years old and hasn't been inspected</li>
+              <li>If you notice curling, cracking, or missing shingles</li>
+              <li>If you see granules accumulating in gutters</li>
+              <li>Before filing an insurance claim for storm damage</li>
+              <li>Annually as part of home maintenance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Form -->
+  <section class="section section--alt" id="contact-section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Free Estimate</span>
+        <h2>Tell Us About Your Roof — Get Help Fast</h2>
+      </div>
+      <LeadForm
+        title="Request a Free Estimate"
+        subtitle="A licensed Salt Lake County roofing contractor will contact you shortly."
+      />
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,258 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+
+const phone = "(801) 514-7004";
+const phoneHref = "tel:+18015147004";
+---
+
+<BaseLayout
+  title="Home | Sandy Roofing Pros — Sandy, UT"
+  description="24/7 emergency roof leak repair and storm damage restoration in Sandy, Utah and Salt Lake County. Call now for a free estimate from a licensed local contractor."
+  canonicalUrl="/"
+>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero__badge">⚡ Available 24 Hours a Day, 7 Days a Week</span>
+      <h1>24/7 Emergency Roof Leak &amp; Storm Damage Repair — Sandy, Utah</h1>
+      <p class="hero__sub">
+        Don't let a leaking roof turn into a flooded home. We connect Sandy and Salt Lake County
+        homeowners with licensed local roofing contractors — fast. Free estimates, no pressure.
+      </p>
+      <div class="hero__ctas">
+        <a href={phoneHref} class="btn btn--primary btn--lg">
+          📞 Call Now for a Free Estimate
+        </a>
+        <a href="#get-estimate" class="btn btn--outline btn--lg">
+          Get Instant Help Online
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST BAR ===== -->
+  <div class="trust-bar">
+    <div class="container">
+      <ul class="trust-bar__list">
+        <li class="trust-bar__item">
+          <span class="trust-bar__icon">⚡</span>
+          <span>Same-Day Response</span>
+        </li>
+        <li class="trust-bar__item">
+          <span class="trust-bar__icon">✅</span>
+          <span>Licensed Local Contractors</span>
+        </li>
+        <li class="trust-bar__item">
+          <span class="trust-bar__icon">💲</span>
+          <span>Free Estimates</span>
+        </li>
+        <li class="trust-bar__item">
+          <span class="trust-bar__icon">🛡️</span>
+          <span>Insurance Claims Assisted</span>
+        </li>
+        <li class="trust-bar__item">
+          <span class="trust-bar__icon">📍</span>
+          <span>Sandy &amp; Salt Lake County</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">What We Connect You With</span>
+        <h2>Roofing Services for Sandy, UT Homeowners</h2>
+        <p>
+          Whether you have an active leak, storm damage, or just want peace of mind before
+          winter, we'll match you with a qualified local contractor right away.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-card__icon">🚨</div>
+          <h3>Emergency Roof Leak Repair</h3>
+          <p>
+            Water coming in right now? Don't wait. Our network responds to active leaks
+            fast — helping prevent structural damage, mold, and ruined ceilings before
+            the problem gets worse.
+          </p>
+          <a href="/services#emergency-leak" class="btn btn--primary">Learn More</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon">🌩️</div>
+          <h3>Storm Damage Roof Repair</h3>
+          <p>
+            Utah's hail, high winds, and heavy snow take a toll on roofs. If your home
+            has been hit by a storm, our contractors can assess the damage, provide
+            documentation, and help you through the insurance claim process.
+          </p>
+          <a href="/services#storm-damage" class="btn btn--primary">Learn More</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon">🔍</div>
+          <h3>Roof Inspections</h3>
+          <p>
+            Buying a home? Worried about aging shingles? A professional inspection catches
+            small problems before they become expensive emergencies — and gives you the
+            documentation you need for insurance or a home sale.
+          </p>
+          <a href="/services#roof-inspection" class="btn btn--primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Why Sandy Roofing Pros</span>
+        <h2>Fast, Trustworthy Help When You Need It Most</h2>
+        <p>
+          We know a roof emergency is stressful. Here's why homeowners across Sandy and
+          Salt Lake County call us first.
+        </p>
+      </div>
+
+      <ul class="why-list">
+        <li class="why-item">
+          <div class="why-item__icon">⚡</div>
+          <div class="why-item__text">
+            <h3>Rapid Same-Day Response</h3>
+            <p>We connect you with contractors who pick up the phone and show up fast — no waiting days for a callback.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">✅</div>
+          <div class="why-item__text">
+            <h3>Licensed &amp; Vetted Contractors</h3>
+            <p>Every contractor in our network is licensed in Utah and has been screened for quality and professionalism.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">💲</div>
+          <div class="why-item__text">
+            <h3>Free Estimates, No Obligation</h3>
+            <p>You'll get a clear estimate before any work begins. No surprise charges, no hard selling.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">📋</div>
+          <div class="why-item__text">
+            <h3>Insurance Claim Support</h3>
+            <p>Our contractors know Utah insurance requirements and can document damage to support your claim.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">📍</div>
+          <div class="why-item__text">
+            <h3>Truly Local Coverage</h3>
+            <p>We serve Sandy, Draper, South Jordan, Murray, Midvale, West Jordan, and the greater Salt Lake area.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">🛠️</div>
+          <div class="why-item__text">
+            <h3>Emergency Tarping Available</h3>
+            <p>Need immediate protection while a full repair is scheduled? Emergency tarping is available through our network.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== SERVICE AREA SNIPPET ===== -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-heading text-center">
+        <span class="section-heading__eyebrow" style="color:#F59E0B;">Where We Serve</span>
+        <h2>Roofing Help Across Salt Lake County</h2>
+        <p style="color:#94A3B8;">
+          Our contractor network covers Sandy and the surrounding communities throughout
+          Salt Lake County, Utah.
+        </p>
+      </div>
+
+      <div class="area-grid">
+        <div class="area-card">
+          <div class="area-card__city">Sandy</div>
+          <div class="area-card__state">Salt Lake County, UT</div>
+        </div>
+        <div class="area-card">
+          <div class="area-card__city">Draper</div>
+          <div class="area-card__state">Salt Lake County, UT</div>
+        </div>
+        <div class="area-card">
+          <div class="area-card__city">South Jordan</div>
+          <div class="area-card__state">Salt Lake County, UT</div>
+        </div>
+        <div class="area-card">
+          <div class="area-card__city">Murray</div>
+          <div class="area-card__state">Salt Lake County, UT</div>
+        </div>
+        <div class="area-card">
+          <div class="area-card__city">Midvale</div>
+          <div class="area-card__state">Salt Lake County, UT</div>
+        </div>
+        <div class="area-card">
+          <div class="area-card__city">West Jordan</div>
+          <div class="area-card__state">Salt Lake County, UT</div>
+        </div>
+        <div class="area-card">
+          <div class="area-card__city">Salt Lake City</div>
+          <div class="area-card__state">Salt Lake County, UT</div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:2rem;">
+        <a href="/service-area" class="btn btn--outline">See Full Service Area</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEAD FORM ===== -->
+  <section class="section section--alt" id="get-estimate">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Free Estimate</span>
+        <h2>Describe Your Roof Problem — We'll Get You Help Fast</h2>
+        <p>
+          Fill out the form below and a licensed local roofing contractor will reach out
+          to you within minutes, not hours.
+        </p>
+      </div>
+
+      <LeadForm
+        title="Request Your Free Roof Estimate"
+        subtitle="No obligation. A licensed Sandy-area contractor will contact you quickly."
+      />
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA STRIP ===== -->
+  <section class="cta-strip">
+    <div class="container">
+      <h2>Roof Leaking Right Now? Don't Wait.</h2>
+      <p>
+        Every minute a roof leak goes unaddressed, water damage spreads. Call us now —
+        we'll connect you with a contractor immediately.
+      </p>
+      <div class="cta-strip__actions">
+        <a href={phoneHref} class="btn btn--accent btn--lg">
+          📞 {phone} — Call Now
+        </a>
+        <a href="#get-estimate" class="btn btn--outline btn--lg">
+          Submit a Request Online
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

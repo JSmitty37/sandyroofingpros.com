@@ -1,0 +1,163 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  elementId?: string;
+}
+
+const {
+  title = "Get Your Free Roof Estimate",
+  subtitle = "Fill out the form below and a local roofing contractor will contact you within minutes.",
+  elementId = "lead-form",
+} = Astro.props;
+---
+
+<div class="lead-form" id={`${elementId}-wrapper`}>
+  <div class="lead-form__title">{title}</div>
+  <p class="lead-form__subtitle">{subtitle}</p>
+
+  <!-- Formspree success state (shown automatically after submission) -->
+  <div data-fs-success class="fs-success">
+    <p>
+      ✅ <strong>Thank you — we received your request!</strong><br />
+      A licensed local roofing contractor will call you shortly. If this is an active
+      leak, please also call us directly at <a href="tel:+18015147004">(801) 514-7004</a>.
+    </p>
+  </div>
+
+  <!-- Formspree form-level error (e.g. network failure) -->
+  <div data-fs-error class="fs-error-global"></div>
+
+  <form id={elementId}>
+    <div class="form-grid">
+
+      <div class="form-field">
+        <label for={`${elementId}-name`}>Full Name *</label>
+        <input
+          type="text"
+          id={`${elementId}-name`}
+          name="name"
+          placeholder="Jane Smith"
+          required
+          autocomplete="name"
+          data-fs-field
+        />
+        <span data-fs-error="name" class="fs-field-error"></span>
+      </div>
+
+      <div class="form-field">
+        <label for={`${elementId}-phone`}>Phone Number *</label>
+        <input
+          type="tel"
+          id={`${elementId}-phone`}
+          name="phone"
+          placeholder="(801) 555-0000"
+          required
+          autocomplete="tel"
+          data-fs-field
+        />
+        <span data-fs-error="phone" class="fs-field-error"></span>
+      </div>
+
+      <div class="form-field">
+        <label for={`${elementId}-email`}>Email Address</label>
+        <input
+          type="email"
+          id={`${elementId}-email`}
+          name="email"
+          placeholder="you@email.com"
+          autocomplete="email"
+          data-fs-field
+        />
+        <span data-fs-error="email" class="fs-field-error"></span>
+      </div>
+
+      <div class="form-field">
+        <label for={`${elementId}-service`}>Service Needed *</label>
+        <select
+          id={`${elementId}-service`}
+          name="service"
+          required
+          data-fs-field
+        >
+          <option value="" disabled selected>Select a service…</option>
+          <option value="Emergency Roof Leak Repair">Emergency Roof Leak Repair</option>
+          <option value="Storm Damage Roof Repair">Storm Damage Roof Repair</option>
+          <option value="Roof Inspection">Roof Inspection</option>
+          <option value="Other / Not Sure">Other / Not Sure</option>
+        </select>
+        <span data-fs-error="service" class="fs-field-error"></span>
+      </div>
+
+      <div class="form-field form-field--full">
+        <label for={`${elementId}-message`}>Describe Your Roof Problem</label>
+        <textarea
+          id={`${elementId}-message`}
+          name="message"
+          placeholder="Tell us what's happening — active leak, storm damage, water stain on ceiling, etc."
+          rows="4"
+          data-fs-field
+        ></textarea>
+        <span data-fs-error="message" class="fs-field-error"></span>
+      </div>
+
+      <div class="form-field form-field--full">
+        <button type="submit" class="btn btn--primary btn--lg btn--block" data-fs-submit-btn>
+          Get Instant Help — It's Free
+        </button>
+        <p class="form-disclaimer">
+          By submitting this form you agree to be contacted by a licensed roofing contractor
+          serving your area. We do not sell or share your information. No spam, ever.
+        </p>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<style>
+  .fs-success {
+    display: none;
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    border-left: 4px solid #16A34A;
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #14532D;
+  }
+  .fs-success a { color: #15803D; font-weight: 700; }
+
+  .fs-error-global {
+    display: none;
+    background: #FEF2F2;
+    border: 1px solid #FECACA;
+    border-left: 4px solid #DC2626;
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+    color: #7F1D1D;
+  }
+
+  .fs-field-error {
+    display: none;
+    font-size: 0.8rem;
+    color: #DC2626;
+    margin-top: 0.2rem;
+  }
+</style>
+
+<!-- Formspree Vanilla JS AJAX — initialise after the CDN script loads -->
+<script define:vars={{ elementId }}>
+  window.formspree = window.formspree || function() {
+    (window.formspree.q = window.formspree.q || []).push(arguments);
+  };
+  window.formspree('initForm', {
+    formElement: '#' + elementId,
+    formId: 'mvzdjovl',
+  });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>

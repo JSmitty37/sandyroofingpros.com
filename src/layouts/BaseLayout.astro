@@ -1,0 +1,129 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl,
+} = Astro.props;
+
+const siteUrl = 'https://sandyroofingpros.com';
+const canonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : `${siteUrl}${Astro.url.pathname}`;
+
+const schemaOrg = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Sandy Roofing Pros",
+  "description": "Emergency roof leak repair and storm damage restoration serving Sandy, Utah and Salt Lake County. 24/7 availability.",
+  "url": siteUrl,
+  "telephone": "+18015147004",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Sandy",
+    "addressRegion": "UT",
+    "addressCountry": "US",
+    "postalCode": "84070"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 40.5922,
+    "longitude": -111.8919
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Sandy", "sameAs": "https://en.wikipedia.org/wiki/Sandy,_Utah" },
+    { "@type": "City", "name": "Draper" },
+    { "@type": "City", "name": "South Jordan" },
+    { "@type": "City", "name": "Murray" },
+    { "@type": "City", "name": "Midvale" },
+    { "@type": "City", "name": "West Jordan" },
+    { "@type": "City", "name": "Salt Lake City" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Roofing Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Emergency Roof Leak Repair" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Storm Damage Roof Repair" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Roof Inspection" } }
+    ]
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "knowsAbout": ["Roofing", "Roof Repair", "Storm Damage Repair", "Emergency Roof Leak"]
+};
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sandy Roofing Pros" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+
+  <!-- Geo tags for local SEO -->
+  <meta name="geo.region" content="US-UT" />
+  <meta name="geo.placename" content="Sandy, Utah" />
+  <meta name="geo.position" content="40.5922;-111.8919" />
+  <meta name="ICBM" content="40.5922, -111.8919" />
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1498618978558062');
+    fbq('track','PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1498618978558062&ev=PageView&noscript=1" />
+  </noscript>
+</head>
+<body>
+  <Header />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>
