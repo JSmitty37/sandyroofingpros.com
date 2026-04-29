@@ -16,7 +16,8 @@ const {
   <div class="lead-form__title">{title}</div>
   <p class="lead-form__subtitle">{subtitle}</p>
 
-  <div data-fs-success class="fs-success" style="display:none">
+  <!-- Formspree success state (shown automatically after submission) -->
+  <div data-fs-success class="fs-success">
     <p>
       ✅ <strong>Thank you — we received your request!</strong><br />
       A licensed local roofing contractor will call you shortly. If this is an active
@@ -24,7 +25,8 @@ const {
     </p>
   </div>
 
-  <div data-fs-error class="fs-error-global" style="display:none"></div>
+  <!-- Formspree form-level error (e.g. network failure) -->
+  <div data-fs-error class="fs-error-global"></div>
 
   <form id={elementId}>
     <div class="form-grid">
@@ -38,7 +40,9 @@ const {
           placeholder="Jane Smith"
           required
           autocomplete="name"
+          data-fs-field
         />
+        <span data-fs-error="name" class="fs-field-error"></span>
       </div>
 
       <div class="form-field">
@@ -50,7 +54,9 @@ const {
           placeholder="(801) 555-0000"
           required
           autocomplete="tel"
+          data-fs-field
         />
+        <span data-fs-error="phone" class="fs-field-error"></span>
       </div>
 
       <div class="form-field">
@@ -61,18 +67,26 @@ const {
           name="email"
           placeholder="you@email.com"
           autocomplete="email"
+          data-fs-field
         />
+        <span data-fs-error="email" class="fs-field-error"></span>
       </div>
 
       <div class="form-field">
         <label for={`${elementId}-service`}>Service Needed *</label>
-        <select id={`${elementId}-service`} name="service" required>
+        <select
+          id={`${elementId}-service`}
+          name="service"
+          required
+          data-fs-field
+        >
           <option value="" disabled selected>Select a service…</option>
           <option value="Emergency Roof Leak Repair">Emergency Roof Leak Repair</option>
           <option value="Storm Damage Roof Repair">Storm Damage Roof Repair</option>
           <option value="Roof Inspection">Roof Inspection</option>
           <option value="Other / Not Sure">Other / Not Sure</option>
         </select>
+        <span data-fs-error="service" class="fs-field-error"></span>
       </div>
 
       <div class="form-field form-field--full">
@@ -82,11 +96,13 @@ const {
           name="message"
           placeholder="Tell us what's happening — active leak, storm damage, water stain on ceiling, etc."
           rows="4"
+          data-fs-field
         ></textarea>
+        <span data-fs-error="message" class="fs-field-error"></span>
       </div>
 
       <div class="form-field form-field--full">
-        <button type="submit" class="btn btn--primary btn--lg btn--block" id={`${elementId}-btn`}>
+        <button type="submit" class="btn btn--primary btn--lg btn--block" data-fs-submit-btn>
           Get Instant Help — It's Free
         </button>
         <p class="form-disclaimer">
@@ -101,6 +117,7 @@ const {
 
 <style>
   .fs-success {
+    display: none;
     background: #F0FDF4;
     border: 1px solid #BBF7D0;
     border-left: 4px solid #16A34A;
@@ -114,6 +131,7 @@ const {
   .fs-success a { color: #15803D; font-weight: 700; }
 
   .fs-error-global {
+    display: none;
     background: #FEF2F2;
     border: 1px solid #FECACA;
     border-left: 4px solid #DC2626;
@@ -123,55 +141,73 @@ const {
     font-size: 0.9rem;
     color: #7F1D1D;
   }
+
+  .fs-field-error {
+    display: none;
+    font-size: 0.8rem;
+    color: #DC2626;
+    margin-top: 0.2rem;
+  }
 </style>
 
+<!-- Custom dual-submit: Formspree (archive/spam) + Make webhook (Notion + email alert) -->
 <script define:vars={{ elementId }}>
-  const FORMSPREE  = 'https://formspree.io/f/mvzdjovl';
-  const MAKE_HOOK  = 'https://hook.us2.make.com/0hvtk7eovyrsp97idje1zuil4rd3bgv';
+  const FORMSPREE_URL = 'https://formspree.io/f/mvzdjovl';
+  const MAKE_WEBHOOK  = 'https://hook.us2.make.com/0hvtk7eovyrsp97idje1zuil4rd3bgv';
 
   document.addEventListener('DOMContentLoaded', function () {
-    const form      = document.getElementById(elementId);
-    const wrapper   = document.getElementById(elementId + '-wrapper');
-    const successEl = wrapper.querySelector('[data-fs-success]');
-    const errorEl   = wrapper.querySelector('[data-fs-error]');
-    const btn       = document.getElementById(elementId + '-btn');
+    const form       = document.getElementById(elementId);
+    const wrapper    = document.getElementById(elementId + '-wrapper');
+    const successEl  = wrapper.querySelector('[data-fs-success]');
+    const errorEl    = wrapper.querySelector('[data-fs-error]');
+    const submitBtn  = form.querySelector('[data-fs-submit-btn]');
+
     if (!form) return;
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
+
+      // Basic validation
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
-      const data = Object.fromEntries(new FormData(form).entries());
-      btn.disabled    = true;
-      btn.textContent = 'Sending…';
+      // Collect data
+      const fd   = new FormData(form);
+      const data = Object.fromEntries(fd.entries());
+
+      // Button loading state
+      submitBtn.disabled    = true;
+      submitBtn.textContent = 'Sending…';
       errorEl.style.display = 'none';
 
       try {
+        // Fire both endpoints simultaneously — Make gets the lead instantly
         const [fsRes] = await Promise.all([
-          fetch(FORMSPREE, {
-            method: 'POST',
+          fetch(FORMSPREE_URL, {
+            method:  'POST',
             headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-            body: JSON.stringify(data),
+            body:    JSON.stringify(data),
           }),
-          fetch(MAKE_HOOK, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data),
-          }).catch(function(){})
+          fetch(MAKE_WEBHOOK, {
+            method:  'POST',
+            mode:    'no-cors',          // skip CORS preflight — simple request goes straight through
+            headers: { 'Content-Type': 'text/plain' }, // text/plain = no preflight; Make auto-parses JSON body
+            body:    JSON.stringify(data),
+          }).catch(() => {}), // Make webhook failure is non-blocking
         ]);
 
         if (fsRes.ok) {
+          // Success UI
           form.style.display      = 'none';
           successEl.style.display = 'block';
         } else {
-          const j = await fsRes.json().catch(function(){ return {}; });
-          throw new Error(j.error || 'Submission failed. Please try again.');
+          const json = await fsRes.json().catch(() => ({}));
+          throw new Error(json.error || 'Submission failed. Please try again.');
         }
       } catch (err) {
         errorEl.textContent   = err.message || 'Something went wrong. Please call (801) 514-7004.';
         errorEl.style.display = 'block';
-        btn.disabled    = false;
-        btn.textContent = "Get Instant Help — It's Free";
+        submitBtn.disabled    = false;
+        submitBtn.textContent = 'Get Instant Help — It\'s Free';
       }
     });
   });
