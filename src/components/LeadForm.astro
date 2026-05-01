@@ -89,6 +89,25 @@ const {
         <span data-fs-error="service" class="fs-field-error"></span>
       </div>
 
+      <div class="form-field">
+        <label for={`${elementId}-city`}>City / Area *</label>
+        <select
+          id={`${elementId}-city`}
+          name="city"
+          required
+          data-fs-field
+        >
+          <option value="" disabled selected>Select your city…</option>
+          <option value="Sandy / Draper">Sandy / Draper</option>
+          <option value="South Jordan / Herriman / Riverton">South Jordan / Herriman / Riverton</option>
+          <option value="West Jordan / Taylorsville / Kearns">West Jordan / Taylorsville / Kearns</option>
+          <option value="Murray / Midvale / Cottonwood Heights">Murray / Midvale / Cottonwood Heights</option>
+          <option value="Salt Lake City / Holladay">Salt Lake City / Holladay</option>
+          <option value="Other">Other (specify in message)</option>
+        </select>
+        <span data-fs-error="city" class="fs-field-error"></span>
+      </div>
+
       <div class="form-field form-field--full">
         <label for={`${elementId}-message`}>Describe Your Roof Problem</label>
         <textarea
