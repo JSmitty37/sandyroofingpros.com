@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const phone = "(801) 514-7004";
+const phoneHref = "tel:+18015147004";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Spot Storm Damage on Your Roof",
+  "description": "A practical guide for Sandy, Utah homeowners on identifying hail and wind damage after a storm — before the insurance window closes.",
+  "author": {
+    "@type": "Organization",
+    "name": "Sandy Roofing Pros",
+    "url": "https://sandyroofingpros.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sandy Roofing Pros",
+    "url": "https://sandyroofingpros.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sandyroofingpros.com/images/og-default.jpg"
+    }
+  },
+  "datePublished": "2026-04-22",
+  "dateModified": "2026-05-04",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sandyroofingpros.com/blog/how-to-spot-storm-damage"
+  },
+  "keywords": ["storm damage roof Utah", "hail damage shingles", "roof inspection Sandy UT", "insurance claim roof damage"],
+  "articleSection": "Roofing Tips",
+  "inLanguage": "en-US"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sandyroofingpros.com" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sandyroofingpros.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "How to Spot Storm Damage on Your Roof", "item": "https://sandyroofingpros.com/blog/how-to-spot-storm-damage" }
+  ]
+};
+---
+
+<BaseLayout
+  title="How to Spot Storm Damage on Your Roof | Sandy Roofing Pros — Sandy, UT"
+  description="A practical guide for Sandy, Utah homeowners on identifying hail and wind damage after a storm — before the insurance window closes. Written by local roofing experts."
+  canonicalUrl="/blog/how-to-spot-storm-damage"
+>
+
+  <!-- Article + Breadcrumb structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>How to Spot Storm Damage on Your Roof</h1>
+      <p>A Sandy, UT homeowner's guide to identifying hail and wind damage — before it costs you.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <article class="blog-article">
+
+        <div class="blog-meta">
+          <span>📍 Written for Sandy &amp; Salt Lake County homeowners</span>
+          <span>⏱ 4 min read</span>
+        </div>
+
+        <p>
+          A storm rolled through last night. Maybe you heard it — hail hitting the windows,
+          wind picking up across the Wasatch Front. Now you're standing in your driveway
+          wondering if your roof took a hit. Most homeowners in Sandy and the surrounding
+          area have no idea what storm damage actually looks like until it shows up as a
+          leak months later. By then, the insurance window has closed and you're paying
+          out of pocket. This guide walks you through what to check — and when to call.
+        </p>
+
+        <h2>Start from the Ground — Don't Get on the Roof Yourself</h2>
+        <p>
+          Before you pull out a ladder, do a slow walk around the perimeter of your house
+          with your eyes up. You won't catch everything from ground level, but you can
+          spot the obvious: missing shingles, shifted ridge caps, debris resting on the
+          roof, or sections where the surface looks different from the rest. Look for
+          shingles that are curled at the edges, completely gone, or sitting in your yard.
+          If you see any of those — stop. You've already seen enough to call for an inspection.
+        </p>
+
+        <h2>What Hail Damage Actually Looks Like</h2>
+        <p>
+          This is where homeowners get it wrong. Hail damage doesn't look like a hole.
+          It looks like a bruise. Up close, you'll see circular soft spots on the shingles
+          where the granule coating has been knocked loose. The surface looks darker or
+          slightly shinier in those spots. You might also see small dents in metal
+          flashing, gutters, or your AC unit — those are actually reliable indicators,
+          because metal reads hail impact clearly while shingles require a trained eye.
+        </p>
+        <p>
+          The sign most homeowners overlook: granules in the gutters. After a hail event,
+          granule coating washes off damaged shingles and collects in your gutters and
+          downspouts. If you clean your gutters and see what looks like coarse black sand,
+          that's your roof losing its protective layer. It won't leak today — but it'll
+          leak sooner than it should.
+        </p>
+
+        <h2>What Wind Damage Looks Like</h2>
+        <p>
+          Wind damage shows up differently. Walk the perimeter again and look for shingles
+          that are lifted at the corners — they'll catch light differently than flat ones.
+          Missing shingles are obvious. Less obvious: check the flashing around your
+          chimney, skylights, and any spot where the roof meets a vertical wall. Wind gets
+          under those edges and pulls them loose.
+        </p>
+        <p>
+          Pay special attention to the ridge cap — the strip of shingles running along the
+          very peak of the roof. It takes the most wind exposure and tends to lift first.
+          If even one ridge cap shingle is gone or shifted, water has a direct path in.
+        </p>
+
+        <h2>Check the Gutters and Downspouts</h2>
+        <p>
+          While you're outside, pull the downspout extension away from the house and look
+          at what's been collecting. Granules are a red flag. So is standing water or
+          debris backed up at the gutter seams — that can point to flashing problems
+          where the gutter meets the fascia board.
+        </p>
+        <p>
+          If you have gutters with guards, check that the guards themselves aren't dented
+          or shifted. Damaged gutter guards after a storm are a solid indicator that the
+          roof above took the same hit.
+        </p>
+
+        <h2>Get Into the Attic</h2>
+        <p>
+          If you can safely access your attic, go up after a storm with a flashlight.
+          You're looking for water stains on the decking (the wood sheeting under the
+          shingles), soft spots in the wood, or anywhere daylight is visible through
+          the roof. You don't 

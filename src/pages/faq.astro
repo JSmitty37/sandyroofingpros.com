@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const phone = "(801) 514-7004";
+const phoneHref = "tel:+18015147004";
+
+const faqs = [
+  {
+    q: "How do I know if my roof has storm damage?",
+    a: "Most storm damage isn't visible from the ground. Hail leaves soft, circular bruises on shingles — you can't see them from the street. Wind damage shows up as lifted or missing shingles, especially along the ridge cap. The most reliable way to find out is to have a licensed roofer get up on the roof and inspect it properly. We can get someone out for a free inspection, usually same day.",
+  },
+  {
+    q: "Does homeowner's insurance cover hail damage in Utah?",
+    a: "In most cases, yes. Standard homeowner's policies in Utah cover sudden storm damage including hail, wind, and falling debris. What's covered depends on your specific policy and deductible. The damage must be from a storm event — not general wear and tear. We recommend getting a contractor inspection before calling your insurer. Your documentation from that inspection is what protects your claim.",
+  },
+  {
+    q: "How quickly can someone get out to my house?",
+    a: "For emergency leaks, same day — we route you directly to a local contractor who can dispatch fast. For non-emergency inspections after a storm, typically within 24 to 48 hours. During high-demand periods after a major storm event, it may take slightly longer, which is another reason not to wait.",
+  },
+  {
+    q: "What's the difference between a roof repair and a full replacement?",
+    a: "A repair addresses specific damaged sections — a few shingles, a failed flashing seal, an isolated leak area. A replacement is when the damage is widespread enough that patching doesn't make economic sense, or when the roof is old enough that the better long-term value is starting fresh. Your contractor will give you an honest read after inspection. We don't steer anyone toward replacement if a repair is the right call.",
+  },
+  {
+    q: "Do I need to be home during the roof inspection?",
+    a: "You don't need to be inside the house, but someone should be available to point out specific concerns — ceiling stains, where the attic is accessed, anything you noticed after the storm. Most inspections are done from the roof itself and take 30 to 60 minutes.",
+  },
+  {
+    q: "Will filing an insurance claim raise my rates?",
+    a: "It might, depending on your insurer and your claims history — but one storm claim typically has less impact on rates than homeowners fear. This is worth asking your insurance agent directly before you file. They can run a rate analysis and give you a clear answer for your specific policy.",
+  },
+  {
+    q: "What if my insurance company denies my claim?",
+    a: "A denial isn't always final. You can request a re-inspection, hire a public adjuster to represent you, or in some cases invoke the appraisal clause in your policy. Having solid documentation from a licensed contractor upfront gives you the strongest position to dispute a denial. We work with contractors who deal with appeals regularly and know how to build the paper trail.",
+  },
+  {
+    q: "How do I verify that a roofing contractor is licensed in Utah?",
+    a: "Utah requires roofing contractors to hold a valid license through the Division of Occupational and Professional Licensing (DOPL). You can look up any contractor at dopl.utah.gov. Every contractor we connect you with holds a current Utah license and can provide their license number before any work begins.",
+  },
+  {
+    q: "What is emergency tarping and do I need it?",
+    a: "Emergency tarping is when a heavy-duty tarp is installed over the damaged section of your roof to stop water from getting in immediately. It's a temporary measure — not a repair — used when a permanent fix can't happen right away due to weather, scheduling, or waiting on insurance approval. If your roof is actively leaking or has a visible opening, tarping protects your home and your belongings in the meantime.",
+  },
+  {
+    q: "How long does a roof repair or replacement take?",
+    a: "A simple repair — patching a few shingles, resealing flashing around a chimney — can be done in a few hours. A partial section replacement might take a full day. A complete roof replacement on a standard residential home in Sandy or the surrounding area typically takes one to three days depending on the size and complexity of the roof. Your contractor will give you a realistic timeline estimate before work begins.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(({ q, a }) => ({
+    "@type": "Question",
+    "name": q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": a,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="Roofing FAQ — Sandy, UT | Roof Repair Questions Answered | Sandy Roofing Pros"
+  description="Answers to the most common roofing questions from Sandy, Utah homeowners — storm damage, insurance claims, inspection timing, licensing, and more."
+  canonicalUrl="/faq"
+>
+
+  <!-- FAQPage schema injected into body — Google accepts it here -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Frequently Asked Questions</h1>
+      <p>
+        Real questions Sandy and Salt Lake County homeowners ask before calling a roofer.
+        If yours isn't here, call us directly — we'll give you a straight answer.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="faq-accordion">
+        {faqs.map(({ q, a }) => (
+          <details class="faq-item">
+            <summary class="faq-question">{q}</summary>
+            <div class="faq-answer">
+              <p>{a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+
+      <div style="text-align:center; margin-top:3rem;">
+        <p style="color:#64748B; margin-bottom:1.25rem;">
+          Still have questions? Call us directly — someone answers day and night.
+        </p>
+        <a href={phoneHref} class="btn btn--primary btn--lg">📞 {phone}</a>
+        <span style="display:block; margin:1rem 0; color:#94A3B8;">or</span>
+        <a href="/contact" class="btn btn--outline" style="color:#1E293B; border-color:#E2E8F0;">
+          Submit a Question Online
+        </a>
+      </div>
+
+    </
