@@ -866,3 +866,162 @@ p:last-child { margin-bottom: 0; }
   font-size: 0.78rem;
   color: #475569;
 }
+
+/* ===== Blog Article ===== */
+.blog-article {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.blog-meta {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.blog-article h2 {
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  margin: 2.25rem 0 0.75rem;
+  color: var(--color-secondary);
+}
+
+.blog-article p {
+  color: var(--color-text-muted);
+  line-height: 1.85;
+  margin-bottom: 1.1rem;
+}
+
+.blog-article ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1.25rem;
+  color: var(--color-text-muted);
+  line-height: 1.85;
+}
+
+.blog-article ul li { margin-bottom: 0.4rem; }
+
+.blog-cta-box {
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-left: 4px solid var(--color-primary);
+  border-radius: 6px;
+  padding: 1.5rem 1.75rem;
+  margin: 2.5rem 0;
+}
+
+.blog-cta-box p {
+  color: #7F1D1D;
+  margin-bottom: 1rem;
+}
+
+/* ===== FAQ Accordion ===== */
+.faq-accordion {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  margin-bottom: 0.6rem;
+  overflow: hidden;
+}
+
+.faq-item[open] {
+  border-color: #FECACA;
+}
+
+.faq-question {
+  padding: 1.2rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  color: var(--color-secondary);
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.faq-question::-webkit-details-marker { display: none; }
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.faq-item[open] .faq-question {
+  background: #FEF2F2;
+}
+
+.faq-item[open] .faq-question::after {
+  content: '−';
+}
+
+.faq-answer {
+  padding: 1rem 1.5rem 1.25rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  font-size: 0.95rem;
+}
+
+.faq-answer p:last-child { margin-bottom: 0; }
+
+.faq-answer a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ===== Area / City Landing Pages ===== */
+.area-hero {
+  background-color: #0F172A;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+  padding: 4.5rem 0 3.5rem;
+  text-align: center;
+}
+
+.area-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10,15,30,0.72);
+  z-index: 0;
+}
+
+.area-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.area-hero h1 { color: #fff; margin-bottom: 1rem; }
+.area-hero p { color: #CBD5E1; max-width: 640px; margin: 0 auto 2rem; font-size: 1.05rem; }
+
+.area-badge {
+  display: inline-block;
+  background: var(--color-accent);
+  color: var(--color-secondary);
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}

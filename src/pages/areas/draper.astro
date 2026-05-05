@@ -4,51 +4,13 @@ import LeadForm from '../../components/LeadForm.astro';
 
 const phone = "(801) 514-7004";
 const phoneHref = "tel:+18015147004";
-
-const localServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Roof Repair in Draper, UT",
-  "description": "Emergency roof repair, storm damage restoration, and roof inspections serving Draper, Utah. Same-day response. Free estimates.",
-  "areaServed": {
-    "@type": "City",
-    "name": "Draper",
-    "containedInPlace": {
-      "@type": "State",
-      "name": "Utah",
-      "sameAs": "https://en.wikipedia.org/wiki/Utah"
-    },
-    "sameAs": "https://en.wikipedia.org/wiki/Draper,_Utah"
-  },
-  "provider": {
-    "@type": "RoofingContractor",
-    "name": "Sandy Roofing Pros",
-    "url": "https://sandyroofingpros.com",
-    "telephone": "+18015147004"
-  },
-  "serviceType": ["Emergency Roof Repair", "Storm Damage Repair", "Hail Damage Repair", "Roof Inspection"]
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sandyroofingpros.com" },
-    { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://sandyroofingpros.com/service-area" },
-    { "@type": "ListItem", "position": 3, "name": "Draper, UT", "item": "https://sandyroofingpros.com/areas/draper" }
-  ]
-};
 ---
 
 <BaseLayout
-  title="Roof Repair in Draper, UT | Sandy Roofing Pros — Emergency & Storm Damage"
+  title="Roof Repair in Draper, UT | Sandy Roofing Pros — Emergency &amp; Storm Damage"
   description="Emergency roof repair and storm damage restoration in Draper, Utah. Licensed local contractors serving Suncrest, Bangerter Highway, and all Draper neighborhoods. Free estimates."
   canonicalUrl="/areas/draper"
 >
-
-  <!-- Local Service + Breadcrumb structured data -->
-  <script type="application/ld+json" set:html={JSON.stringify(localServiceSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <!-- Hero -->
   <section class="area-hero" style="background-image: url('/images/hero-bg.jpg');">
@@ -161,4 +123,45 @@ const breadcrumbSchema = {
           <div class="why-item__icon">🔍</div>
           <div class="why-item__text">
             <h3>Roof Inspections</h3>
-            <p>Buying or selling in Draper? Get a pre-listing or pre-purchase inspection from a contractor who knows thi
+            <p>Buying or selling in Draper? Get a pre-listing or pre-purchase inspection from a contractor who knows this area's specific roofing challenges.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">📋</div>
+          <div class="why-item__text">
+            <h3>Insurance Claim Support</h3>
+            <p>Our contractors document damage correctly the first time — photos, measurements, written report. We help Draper homeowners get what their policy covers.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Lead Form -->
+  <section class="section" id="get-estimate">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Free Estimate</span>
+        <h2>Get a Draper Roofer Out Fast — It's Free</h2>
+        <p>Fill out the form and a licensed contractor serving Draper will follow up quickly.</p>
+      </div>
+      <LeadForm
+        title="Request a Free Estimate in Draper, UT"
+        subtitle="A licensed local roofing contractor will call you back — usually within the hour."
+        elementId="draper-form"
+      />
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <section class="cta-strip">
+    <div class="container">
+      <h2>Draper Roof Emergency? Call Now.</h2>
+      <p>Same-day response available throughout Draper and South Salt Lake County.</p>
+      <div class="cta-strip__actions">
+        <a href={phoneHref} class="btn btn--accent btn--lg">📞 {phone} — Available 24/7</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -3,46 +3,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const phone = "(801) 514-7004";
 const phoneHref = "tel:+18015147004";
-
-const articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "How to Spot Storm Damage on Your Roof",
-  "description": "A practical guide for Sandy, Utah homeowners on identifying hail and wind damage after a storm — before the insurance window closes.",
-  "author": {
-    "@type": "Organization",
-    "name": "Sandy Roofing Pros",
-    "url": "https://sandyroofingpros.com"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Sandy Roofing Pros",
-    "url": "https://sandyroofingpros.com",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://sandyroofingpros.com/images/og-default.jpg"
-    }
-  },
-  "datePublished": "2026-04-22",
-  "dateModified": "2026-05-04",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://sandyroofingpros.com/blog/how-to-spot-storm-damage"
-  },
-  "keywords": ["storm damage roof Utah", "hail damage shingles", "roof inspection Sandy UT", "insurance claim roof damage"],
-  "articleSection": "Roofing Tips",
-  "inLanguage": "en-US"
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sandyroofingpros.com" },
-    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sandyroofingpros.com/blog" },
-    { "@type": "ListItem", "position": 3, "name": "How to Spot Storm Damage on Your Roof", "item": "https://sandyroofingpros.com/blog/how-to-spot-storm-damage" }
-  ]
-};
 ---
 
 <BaseLayout
@@ -50,10 +10,6 @@ const breadcrumbSchema = {
   description="A practical guide for Sandy, Utah homeowners on identifying hail and wind damage after a storm — before the insurance window closes. Written by local roofing experts."
   canonicalUrl="/blog/how-to-spot-storm-damage"
 >
-
-  <!-- Article + Breadcrumb structured data -->
-  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <section class="page-hero">
     <div class="container">
@@ -139,4 +95,43 @@ const breadcrumbSchema = {
           If you can safely access your attic, go up after a storm with a flashlight.
           You're looking for water stains on the decking (the wood sheeting under the
           shingles), soft spots in the wood, or anywhere daylight is visible through
-          the roof. You don't 
+          the roof. You don't need to see active dripping — old staining tells you water
+          has gotten in at some point, and recent staining tells you it happened during
+          last night's storm.
+        </p>
+
+        <h2>Call Before You File — This Is the Part That Matters</h2>
+        <p>
+          Here's the mistake most homeowners make: they see something, they call their
+          insurance company first, an adjuster comes out, and without independent
+          documentation from a roofer, the claim gets lowballed or denied. Adjusters
+          work for the insurance company. Their job is to close the claim, not maximize
+          your settlement.
+        </p>
+        <p>
+          Get a licensed roofer out first. They'll document everything — photos,
+          measurements, a written damage report — before your adjuster visit. That
+          documentation is your leverage. It's also what protects you if you need to
+          dispute a denial later.
+        </p>
+
+        <div class="blog-cta-box">
+          <p>
+            <strong>If a storm just hit your area</strong> — Sandy, Draper, South Jordan,
+            Murray, or anywhere in Salt Lake County — get an inspection on the books now.
+            It's free, it takes 15 minutes to schedule, and it gives you the documentation
+            you need before the insurance window closes.
+          </p>
+          <a href="/#get-estimate" class="btn btn--primary">Get a Free Inspection →</a>
+        </div>
+
+        <p style="font-size:0.85rem; color:#94A3B8; margin-top:2rem;">
+          Questions? Call us directly at <a href={phoneHref}>{phone}</a> — available 24/7
+          for emergency situations.
+        </p>
+
+      </article>
+    </div>
+  </section>
+
+</BaseLayout>

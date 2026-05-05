@@ -80,6 +80,7 @@ const schemaOrg = {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="google-site-verification" content="BN57UIDtesbzlqyobU6Uq9o5PECz1ZjLu79a2T_N8KI" />
 
   <title>{title}</title>
   <meta name="description" content={description} />
@@ -101,4 +102,42 @@ const schemaOrg = {
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={`${siteUrl}${ogIm
+  <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+  <!-- Geo tags for local SEO -->
+  <meta name="geo.region" content="US-UT" />
+  <meta name="geo.placename" content="Sandy, Utah" />
+  <meta name="geo.position" content="40.5922;-111.8919" />
+  <meta name="ICBM" content="40.5922, -111.8919" />
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1498618978558062');
+    fbq('track','PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1498618978558062&ev=PageView&noscript=1" />
+  </noscript>
+</head>
+<body>
+  <Header />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

@@ -4,51 +4,13 @@ import LeadForm from '../../components/LeadForm.astro';
 
 const phone = "(801) 514-7004";
 const phoneHref = "tel:+18015147004";
-
-const localServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Roof Repair in South Jordan, UT",
-  "description": "Emergency roof repair, storm damage restoration, and roof inspections serving South Jordan, Utah including the Daybreak community. Same-day response. Free estimates.",
-  "areaServed": {
-    "@type": "City",
-    "name": "South Jordan",
-    "containedInPlace": {
-      "@type": "State",
-      "name": "Utah",
-      "sameAs": "https://en.wikipedia.org/wiki/Utah"
-    },
-    "sameAs": "https://en.wikipedia.org/wiki/South_Jordan,_Utah"
-  },
-  "provider": {
-    "@type": "RoofingContractor",
-    "name": "Sandy Roofing Pros",
-    "url": "https://sandyroofingpros.com",
-    "telephone": "+18015147004"
-  },
-  "serviceType": ["Emergency Roof Repair", "Storm Damage Repair", "Hail Damage Repair", "Roof Inspection", "Flashing Repair"]
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sandyroofingpros.com" },
-    { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://sandyroofingpros.com/service-area" },
-    { "@type": "ListItem", "position": 3, "name": "South Jordan, UT", "item": "https://sandyroofingpros.com/areas/south-jordan" }
-  ]
-};
 ---
 
 <BaseLayout
-  title="Roof Repair in South Jordan, UT | Sandy Roofing Pros — Emergency & Storm Damage"
+  title="Roof Repair in South Jordan, UT | Sandy Roofing Pros — Emergency &amp; Storm Damage"
   description="Emergency roof repair and storm damage restoration in South Jordan, Utah. Licensed local contractors serving Daybreak and all South Jordan neighborhoods. Free estimates."
   canonicalUrl="/areas/south-jordan"
 >
-
-  <!-- Local Service + Breadcrumb structured data -->
-  <script type="application/ld+json" set:html={JSON.stringify(localServiceSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <!-- Hero -->
   <section class="area-hero" style="background-image: url('/images/hero-bg.jpg');">
@@ -162,4 +124,45 @@ const breadcrumbSchema = {
           <div class="why-item__icon">🔧</div>
           <div class="why-item__text">
             <h3>Flashing Repair &amp; Resealing</h3>
-            <p>Especially common in newer South Jordan builds. Chimney, vent, and
+            <p>Especially common in newer South Jordan builds. Chimney, vent, and skylight flashing failures caught early are a quick fix — ignored, they become major water damage claims.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">📋</div>
+          <div class="why-item__text">
+            <h3>Insurance Claim Support</h3>
+            <p>We connect South Jordan homeowners with contractors who understand the insurance process and can document your damage before the adjuster visit.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Lead Form -->
+  <section class="section" id="get-estimate">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Free Estimate</span>
+        <h2>Get a South Jordan Roofer Out Fast — It's Free</h2>
+        <p>Fill out the form and a licensed contractor serving South Jordan will follow up quickly.</p>
+      </div>
+      <LeadForm
+        title="Request a Free Estimate in South Jordan, UT"
+        subtitle="A licensed local roofing contractor will call you back — usually within the hour."
+        elementId="southjordan-form"
+      />
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <section class="cta-strip">
+    <div class="container">
+      <h2>South Jordan Roof Emergency? Call Now.</h2>
+      <p>Same-day response available throughout South Jordan including Daybreak.</p>
+      <div class="cta-strip__actions">
+        <a href={phoneHref} class="btn btn--accent btn--lg">📞 {phone} — Available 24/7</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

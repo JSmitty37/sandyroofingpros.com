@@ -89,25 +89,6 @@ const {
         <span data-fs-error="service" class="fs-field-error"></span>
       </div>
 
-      <div class="form-field">
-        <label for={`${elementId}-city`}>City / Area *</label>
-        <select
-          id={`${elementId}-city`}
-          name="city"
-          required
-          data-fs-field
-        >
-          <option value="" disabled selected>Select your city…</option>
-          <option value="Sandy / Draper">Sandy / Draper</option>
-          <option value="South Jordan / Herriman / Riverton">South Jordan / Herriman / Riverton</option>
-          <option value="West Jordan / Taylorsville / Kearns">West Jordan / Taylorsville / Kearns</option>
-          <option value="Murray / Midvale / Cottonwood Heights">Murray / Midvale / Cottonwood Heights</option>
-          <option value="Salt Lake City / Holladay">Salt Lake City / Holladay</option>
-          <option value="Other">Other (specify in message)</option>
-        </select>
-        <span data-fs-error="city" class="fs-field-error"></span>
-      </div>
-
       <div class="form-field form-field--full">
         <label for={`${elementId}-message`}>Describe Your Roof Problem</label>
         <textarea
@@ -169,65 +150,14 @@ const {
   }
 </style>
 
-<!-- Custom dual-submit: Formspree (archive/spam) + Make webhook (Notion + email alert) -->
+<!-- Formspree Vanilla JS AJAX — initialise after the CDN script loads -->
 <script define:vars={{ elementId }}>
-  const FORMSPREE_URL = 'https://formspree.io/f/mvzdjovl';
-  const MAKE_WEBHOOK  = 'https://hook.us2.make.com/0hvtk7eovyrsp97idje1zuil4rd3bgvo';
-
-  document.addEventListener('DOMContentLoaded', function () {
-    const form       = document.getElementById(elementId);
-    const wrapper    = document.getElementById(elementId + '-wrapper');
-    const successEl  = wrapper.querySelector('[data-fs-success]');
-    const errorEl    = wrapper.querySelector('[data-fs-error]');
-    const submitBtn  = form.querySelector('[data-fs-submit-btn]');
-
-    if (!form) return;
-
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      // Basic validation
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-
-      // Collect data
-      const fd   = new FormData(form);
-      const data = Object.fromEntries(fd.entries());
-
-      // Button loading state
-      submitBtn.disabled    = true;
-      submitBtn.textContent = 'Sending…';
-      errorEl.style.display = 'none';
-
-      try {
-        // Fire both endpoints simultaneously — Make gets the lead instantly
-        const [fsRes] = await Promise.all([
-          fetch(FORMSPREE_URL, {
-            method:  'POST',
-            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-            body:    JSON.stringify(data),
-          }),
-          fetch(MAKE_WEBHOOK, {
-            method:  'POST',
-            mode:    'no-cors',          // skip CORS preflight — simple request goes straight through
-            headers: { 'Content-Type': 'text/plain' }, // text/plain = no preflight; Make auto-parses JSON body
-            body:    JSON.stringify(data),
-          }).catch(() => {}), // Make webhook failure is non-blocking
-        ]);
-
-        if (fsRes.ok) {
-          // Success UI
-          form.style.display      = 'none';
-          successEl.style.display = 'block';
-        } else {
-          const json = await fsRes.json().catch(() => ({}));
-          throw new Error(json.error || 'Submission failed. Please try again.');
-        }
-      } catch (err) {
-        errorEl.textContent   = err.message || 'Something went wrong. Please call (801) 514-7004.';
-        errorEl.style.display = 'block';
-        submitBtn.disabled    = false;
-        submitBtn.textContent = 'Get Instant Help — It\'s Free';
-      }
-    });
+  window.formspree = window.formspree || function() {
+    (window.formspree.q = window.formspree.q || []).push(arguments);
+  };
+  window.formspree('initForm', {
+    formElement: '#' + elementId,
+    formId: 'mvzdjovl',
   });
 </script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
