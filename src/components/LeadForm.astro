@@ -150,14 +150,67 @@ const {
   }
 </style>
 
-<!-- Formspree Vanilla JS AJAX — initialise after the CDN script loads -->
+<!-- Custom dual-submit: Formspree (archive/spam) + Make webhook (Notion + email alert) -->
 <script define:vars={{ elementId }}>
-  window.formspree = window.formspree || function() {
-    (window.formspree.q = window.formspree.q || []).push(arguments);
-  };
-  window.formspree('initForm', {
-    formElement: '#' + elementId,
-    formId: 'mvzdjovl',
+  const FORMSPREE_URL = 'https://formspree.io/f/mvzdjovl';
+  const MAKE_WEBHOOK  = 'https://hook.us2.make.com/0hvtk7eovyrsp97idje1zuil4rd3bgvo';
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const form       = document.getElementById(elementId);
+    const wrapper    = document.getElementById(elementId + '-wrapper');
+    const successEl  = wrapper.querySelector('[data-fs-success]');
+    const errorEl    = wrapper.querySelector('[data-fs-error]');
+    const submitBtn  = form.querySelector('[data-fs-submit-btn]');
+
+    if (!form) return;
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // Basic validation
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      // Collect data
+      const fd   = new FormData(form);
+      const data = Object.fromEntries(fd.entries());
+
+      // Button loading state
+      submitBtn.disabled    = true;
+      submitBtn.textContent = 'Sending…';
+      errorEl.style.display = 'none';
+
+      try {
+        // Fire both endpoints simultaneously — Make gets the lead instantly
+        const [fsRes] = await Promise.all([
+          fetch(FORMSPREE_URL, {
+            method:  'POST',
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+            body:    JSON.stringify(data),
+          }),
+          fetch(MAKE_WEBHOOK, {
+            method:  'POST',
+            mode:    'no-cors',          // skip CORS preflight — simple request goes straight through
+            headers: { 'Content-Type': 'text/plain' }, // text/plain = no preflight; Make auto-parses JSON body
+            body:    JSON.stringify(data),
+          }).catch(() => {}), // Make webhook failure is non-blocking
+        ]);
+
+        if (fsRes.ok) {
+          // Success UI
+          form.style.display      = 'none';
+          successEl.style.display = 'block';
+          // Meta Pixel — fire Lead event on successful form submission
+          if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
+        } else {
+          const json = await fsRes.json().catch(() => ({}));
+          throw new Error(json.error || 'Submission failed. Please try again.');
+        }
+      } catch (err) {
+        errorEl.textContent   = err.message || 'Something went wrong. Please call (801) 514-7004.';
+        errorEl.style.display = 'block';
+        submitBtn.disabled    = false;
+        submitBtn.textContent = 'Get Instant Help — It\'s Free';
+      }
+    });
   });
 </script>
-<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
