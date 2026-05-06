@@ -73,6 +73,23 @@ const {
       </div>
 
       <div class="form-field">
+        <label for={`${elementId}-zipcode`}>Zip Code *</label>
+        <input
+          type="text"
+          id={`${elementId}-zipcode`}
+          name="zipcode"
+          placeholder="84070"
+          required
+          autocomplete="postal-code"
+          inputmode="numeric"
+          pattern="[0-9]{5}"
+          maxlength="5"
+          data-fs-field
+        />
+        <span data-fs-error="zipcode" class="fs-field-error"></span>
+      </div>
+
+      <div class="form-field form-field--full">
         <label for={`${elementId}-service`}>Service Needed *</label>
         <select
           id={`${elementId}-service`}
