@@ -11,48 +11,55 @@ const cities = [
     state: "UT",
     desc: "Home base. From the Dimple Dell area off 1300 East to the Quarry Bend neighborhoods near 9800 South — if you're in Sandy with a roof problem, someone can be out today.",
     zip: "84070",
+    href: null,
   },
   {
     name: "Draper",
     state: "UT",
     desc: "Draper gets hit hard by summer hail. The Suncrest and south-facing foothill homes see some of the worst UV wear in the county too. We cover all of Draper including newer builds off Bangerter.",
     zip: "84020",
+    href: "/areas/draper",
   },
   {
     name: "South Jordan",
     state: "UT",
     desc: "New construction doesn't mean storm-proof. Flashing failures are common in the first few years, and Daybreak takes a beating in July hail. We cover all of South Jordan.",
     zip: "84009",
+    href: "/areas/south-jordan",
   },
   {
     name: "Murray",
     state: "UT",
     desc: "A lot of Murray's housing stock is mid-century — which means roofs that are overdue. We serve all of Murray, from the State Street corridor east toward the foothills.",
     zip: "84107",
+    href: "/areas/murray",
   },
   {
     name: "Midvale",
     state: "UT",
     desc: "Midvale has a mix of older and newer homes and both take storm damage the same way. We cover the full 84047 zip with the same response time as anywhere else on this list.",
     zip: "84047",
+    href: "/areas/midvale",
   },
   {
     name: "West Jordan",
     state: "UT",
     desc: "West Jordan is big — we cover all of it. Established neighborhoods along 7800 South and the newer developments going up near the Mountain View Corridor.",
     zip: "84084",
+    href: "/areas/west-jordan",
   },
   {
     name: "Salt Lake City",
     state: "UT",
     desc: "From the Avenues to Sugar House, Rose Park to the 9th & 9th area — SLC has some of the oldest roofing stock in the county. We connect you with someone who knows these neighborhoods.",
     zip: "84101",
+    href: "/areas/salt-lake-city",
   },
 ];
 ---
 
 <BaseLayout
-  title="Service Area | Sandy Roofing Pros — Sandy, UT"
+  title="Roof Repair Near Me — Sandy, Draper, South Jordan & SLC, UT | Sandy Roofing Pros"
   description="Sandy Roofing Pros serves Sandy, Draper, South Jordan, Murray, Midvale, West Jordan, and Salt Lake City. Emergency roof repair across all of Salt Lake County, Utah."
   canonicalUrl="/service-area"
 >
@@ -85,6 +92,11 @@ const cities = [
           <div class="city-card">
             <h3>{city.name}, {city.state} <span style="font-weight:400; color:#94A3B8; font-size:0.85rem;">{city.zip}</span></h3>
             <p>{city.desc}</p>
+            {city.href && (
+              <a href={city.href} style="font-size:0.88rem; font-weight:600; color:var(--color-accent); text-decoration:none;">
+                {city.name} roofing details →
+              </a>
+            )}
           </div>
         ))}
       </div>

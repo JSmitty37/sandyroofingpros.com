@@ -3,6 +3,46 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const phone = "(801) 514-7004";
 const phoneHref = "tel:+18015147004";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Spot Storm Damage on Your Roof",
+  "description": "A practical guide for Sandy, Utah homeowners on identifying hail and wind damage after a storm — before the insurance window closes.",
+  "author": {
+    "@type": "Organization",
+    "name": "Sandy Roofing Pros",
+    "url": "https://sandyroofingpros.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sandy Roofing Pros",
+    "url": "https://sandyroofingpros.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sandyroofingpros.com/images/og-default.jpg"
+    }
+  },
+  "datePublished": "2026-04-22",
+  "dateModified": "2026-05-04",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sandyroofingpros.com/blog/how-to-spot-storm-damage"
+  },
+  "keywords": ["storm damage roof Utah", "hail damage shingles", "roof inspection Sandy UT", "insurance claim roof damage"],
+  "articleSection": "Roofing Tips",
+  "inLanguage": "en-US"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sandyroofingpros.com" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sandyroofingpros.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "How to Spot Storm Damage on Your Roof", "item": "https://sandyroofingpros.com/blog/how-to-spot-storm-damage" }
+  ]
+};
 ---
 
 <BaseLayout
@@ -10,6 +50,10 @@ const phoneHref = "tel:+18015147004";
   description="A practical guide for Sandy, Utah homeowners on identifying hail and wind damage after a storm — before the insurance window closes. Written by local roofing experts."
   canonicalUrl="/blog/how-to-spot-storm-damage"
 >
+
+  <!-- Article + Breadcrumb structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <section class="page-hero">
     <div class="container">

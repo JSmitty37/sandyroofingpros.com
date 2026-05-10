@@ -1,0 +1,375 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const phone = "(801) 514-7004";
+const phoneHref = "tel:+18015147004";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How Much Does Roof Repair Cost in Utah? (2026 Guide)",
+  "description": "Real cost breakdowns for roof repair in Salt Lake County, Utah — from minor leak fixes to full storm damage replacement. What homeowners should expect to pay in 2026.",
+  "author": {
+    "@type": "Organization",
+    "name": "Sandy Roofing Pros",
+    "url": "https://sandyroofingpros.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sandy Roofing Pros",
+    "url": "https://sandyroofingpros.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sandyroofingpros.com/images/og-default.jpg"
+    }
+  },
+  "datePublished": "2026-05-10",
+  "dateModified": "2026-05-10",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sandyroofingpros.com/blog/roof-repair-cost-utah"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does roof repair cost in Utah?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most roof repairs in Utah cost between $350 and $1,500 for minor issues like patching, flashing repair, or replacing a few shingles. Storm damage repairs typically run $1,500 to $5,000. Full roof replacements in Salt Lake County average $8,000 to $20,000 depending on home size and materials."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does homeowners insurance cover roof repair in Utah?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — most Utah homeowners insurance policies cover storm damage (hail, wind, falling debris) to roofs. Normal wear and tear is typically excluded. You'll need documentation of the damage, usually within 12 months of the storm event, to file a successful claim."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a roof repair take in Utah?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Minor repairs (patching, flashing, a few shingles) typically take 2 to 4 hours. Larger storm damage repairs may take 1 to 2 days. Full replacements on standard residential roofs usually take 1 to 3 days depending on size and complexity."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="How Much Does Roof Repair Cost in Utah? (2026 Guide) | Sandy Roofing Pros"
+  description="Real cost breakdowns for roof repair in Salt Lake County, Utah. Minor leaks to full storm damage replacement — what Utah homeowners should expect to pay in 2026, plus what insurance covers."
+  canonicalUrl="/blog/roof-repair-cost-utah"
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <style>
+    .blog-hero {
+      background: linear-gradient(135deg, #0f2a4a 0%, #1a3f6f 100%);
+      color: white;
+      padding: 4rem 0 3rem;
+    }
+    .blog-hero .container { max-width: 800px; }
+    .blog-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9);
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .blog-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .blog-meta {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .blog-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+    .blog-content h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin: 2.5rem 0 1rem;
+      padding-top: 0.5rem;
+    }
+    .blog-content h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin: 1.5rem 0 0.5rem;
+    }
+    .blog-content p {
+      line-height: 1.8;
+      color: #374151;
+      margin-bottom: 1.2rem;
+    }
+    .cost-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    .cost-table th {
+      background: #0f2a4a;
+      color: white;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    .cost-table td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid #e5e7eb;
+      vertical-align: top;
+    }
+    .cost-table tr:nth-child(even) td { background: #f9fafb; }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .callout {
+      background: #EFF6FF;
+      border-left: 4px solid #2563EB;
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1.5rem 0;
+    }
+    .callout p { margin-bottom: 0; }
+    .callout strong { color: #1e40af; }
+    .faq-item {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .faq-item h3 { margin-top: 0; font-size: 1.05rem; }
+    .faq-item p { margin-bottom: 0; }
+    .blog-cta {
+      background: linear-gradient(135deg, #0f2a4a 0%, #1a3f6f 100%);
+      color: white;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      border-radius: 12px;
+      margin: 3rem 0 1rem;
+    }
+    .blog-cta h2 { color: white; font-size: 1.6rem; margin: 0 0 0.75rem; }
+    .blog-cta p { color: rgba(255,255,255,0.85); margin-bottom: 1.5rem; }
+  </style>
+
+  <!-- Hero -->
+  <div class="blog-hero">
+    <div class="container">
+      <span class="blog-badge">Homeowner Guide · Salt Lake County</span>
+      <h1>How Much Does Roof Repair Cost in Utah?<br/>(2026 Real-World Guide)</h1>
+      <p class="blog-meta">By Sandy Roofing Pros &nbsp;·&nbsp; Updated May 2026 &nbsp;·&nbsp; 8 min read</p>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="blog-content">
+
+    <p>
+      If you're searching for roof repair costs in Utah, you've probably noticed that most
+      answers online are vague national averages that don't account for Salt Lake County's
+      specific labor market, climate, or the storm patterns that drive most local repair work.
+    </p>
+    <p>
+      This guide is based on what contractors are actually charging in the Sandy, Murray,
+      Draper, and West Jordan areas in 2026 — not national data that may be years out of date.
+    </p>
+
+    <h2>Utah Roof Repair Cost Summary</h2>
+    <p>Here's a quick reference before we get into the details:</p>
+
+    <table class="cost-table">
+      <thead>
+        <tr>
+          <th>Repair Type</th>
+          <th>Typical Cost Range (SLC Metro)</th>
+          <th>Insurance Covered?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Minor patch (1–5 shingles)</td>
+          <td>$250 – $600</td>
+          <td>Rarely — usually wear/tear</td>
+        </tr>
+        <tr>
+          <td>Flashing repair (chimney, valley, vent)</td>
+          <td>$300 – $900</td>
+          <td>Sometimes, if storm-related</td>
+        </tr>
+        <tr>
+          <td>Emergency leak repair (temporary)</td>
+          <td>$400 – $1,200</td>
+          <td>Yes, if storm-caused</td>
+        </tr>
+        <tr>
+          <td>Hail damage repair (partial section)</td>
+          <td>$1,500 – $4,500</td>
+          <td>Yes — most policies cover this</td>
+        </tr>
+        <tr>
+          <td>Hail damage repair (full roof)</td>
+          <td>$8,000 – $18,000</td>
+          <td>Yes, if functionally damaged</td>
+        </tr>
+        <tr>
+          <td>Wind damage (blown-off sections)</td>
+          <td>$800 – $5,000</td>
+          <td>Yes — standard coverage</td>
+        </tr>
+        <tr>
+          <td>Full roof replacement (2,000 sq ft home)</td>
+          <td>$9,000 – $20,000</td>
+          <td>If storm is root cause</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <p><strong>Important:</strong> These are contractor estimates, not what your insurance will pay. Your out-of-pocket cost is your deductible — typically $1,000 to $2,500. The insurer pays the rest of a covered claim.</p>
+    </div>
+
+    <h2>What Drives Roof Repair Costs in Salt Lake County</h2>
+
+    <h3>1. Labor Costs Are Up Significantly Since 2022</h3>
+    <p>
+      Utah's construction labor market has tightened considerably. Roofing crew rates in
+      Salt Lake County are now 20–35% higher than they were in 2020. That $800 leak repair
+      that used to cost $550 reflects real labor market conditions — not contractor price gouging.
+    </p>
+
+    <h3>2. Material Costs Remain Elevated</h3>
+    <p>
+      Asphalt shingle prices peaked in 2022–2023 and have moderated slightly, but remain
+      well above pre-pandemic levels. A standard 3-tab shingle now runs $90–$120 per square
+      (100 sq ft) installed. Architectural shingles — which most Utah homeowners use — run
+      $130–$200 per square installed.
+    </p>
+
+    <h3>3. Storm-Damaged Roofs Are More Complex</h3>
+    <p>
+      A roof that's been hit by hail often has damage that isn't visible from the ground.
+      Hail can bruise shingle granules, crack the mat underneath, and compromise the
+      waterproofing integrity without leaving obvious holes. This kind of damage requires
+      a knowledgeable inspection, not just a visual scan from the driveway.
+    </p>
+
+    <h3>4. Emergency Response Carries a Premium</h3>
+    <p>
+      If you need someone out the same day — because water is actively entering your home —
+      expect to pay 15–30% more than you would for a scheduled appointment.
+      That's the cost of priority dispatch. It's worth it when water is spreading through
+      your ceiling or walls.
+    </p>
+
+    <h2>Does Homeowners Insurance Cover Roof Repair in Utah?</h2>
+
+    <p>
+      Most Utah homeowners insurance policies cover storm damage to roofs. This includes
+      damage from hail, wind, falling trees, and ice dams. What's typically <em>not</em> covered:
+    </p>
+    <p>
+      Normal wear and tear is excluded — if your roof is just old and failing, that's a
+      maintenance issue your policy won't cover. Flood damage is also excluded from standard
+      policies (you'd need separate flood insurance). Poor workmanship or improper installation
+      isn't covered either.
+    </p>
+
+    <div class="callout">
+      <p><strong>The insurance window matters.</strong> Most Utah insurers require you to file a storm damage claim within 12 months of the event. If a hailstorm hit your neighborhood in June and you don't file until the following August, you may be out of luck — even if the damage is real.</p>
+    </div>
+
+    <h3>How to Maximize Your Insurance Claim</h3>
+    <p>
+      The single biggest factor in whether a Utah homeowners insurance claim pays out correctly
+      is documentation. Adjusters are looking for specific evidence: hail impact marks on
+      shingles, granule loss in gutters and downspout splashguards, dents on metal roof
+      components (vents, flashing, gutters), and a written damage assessment from a licensed contractor.
+    </p>
+    <p>
+      Contractors who work with insurance claims regularly know how to document this correctly.
+      One who doesn't can inadvertently undermine your claim by missing key damage indicators
+      or failing to provide what the adjuster needs to approve the work.
+    </p>
+
+    <h2>How Much Does a Roof Inspection Cost in Utah?</h2>
+    <p>
+      Many Utah roofing contractors offer free post-storm inspections — including us. The
+      reasoning is straightforward: if there's storm damage, the contractor documents it
+      and helps you file the insurance claim. The work follows. If there's no damage,
+      you at least have peace of mind.
+    </p>
+    <p>
+      Paid inspections for pre-purchase or pre-listing purposes typically run $150–$400
+      depending on roof size and complexity.
+    </p>
+
+    <h2>Sandy / South Salt Lake County Specific Factors</h2>
+    <p>
+      The Sandy, Murray, Midvale, and Draper areas see consistent hail events in late spring
+      and early summer as storm cells track northeast from Utah County. The Point of the Mountain
+      elevation creates a specific pattern where storms that miss downtown SLC still hit the
+      southern end of the valley with significant force.
+    </p>
+    <p>
+      If you're in one of these areas and a storm has rolled through your neighborhood in the
+      last few months, it's worth having your roof looked at — even if you don't see obvious damage.
+      Hail damage on asphalt shingles often isn't visible until you're on the roof and looking
+      at the right angle in the right light.
+    </p>
+
+    <!-- FAQ -->
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <h3>How much does roof repair cost in Utah?</h3>
+      <p>Most roof repairs in Utah cost between $350 and $1,500 for minor issues like patching, flashing repair, or replacing a few shingles. Storm damage repairs typically run $1,500 to $5,000. Full roof replacements in Salt Lake County average $8,000 to $20,000 depending on home size and materials.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Does homeowners insurance cover roof repair in Utah?</h3>
+      <p>Yes — most Utah homeowners insurance policies cover storm damage (hail, wind, falling debris) to roofs. Normal wear and tear is typically excluded. You'll need documentation of the damage, usually within 12 months of the storm event, to file a successful claim.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How long does a roof repair take in Utah?</h3>
+      <p>Minor repairs (patching, flashing, a few shingles) typically take 2 to 4 hours. Larger storm damage repairs may take 1 to 2 days. Full replacements on standard residential roofs usually take 1 to 3 days depending on size and complexity.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I know if I need a repair or a full replacement?</h3>
+      <p>Generally, if the damage is isolated to one section and your roof is less than 15 years old, repair is usually the right call. If damage is widespread, your roof is over 20 years old, or your insurer determines the roof has functional damage, replacement is often more cost-effective and what insurance will cover.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="blog-cta">
+      <h2>Get a Free Estimate for Your Utah Roof</h2>
+      <p>Not sure what your repair will cost? A licensed local contractor will assess your roof and give you a written estimate — no cost, no obligation.</p>
+      <a href="/#lead-form" class="btn btn--accent btn--lg">Request a Free Estimate</a>
+      <br/><br/>
+      <a href={phoneHref} style="color: rgba(255,255,255,0.85); font-size: 1.05rem;">Or call us directly: {phone}</a>
+    </div>
+
+  </div>
+
+</BaseLayout>
