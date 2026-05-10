@@ -218,6 +218,8 @@ const {
           successEl.style.display = 'block';
           // Meta Pixel — fire Lead event on successful form submission
           if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
+          // Google Ads — fire conversion event on successful form submission
+          if (typeof gtag !== 'undefined') { gtag('event', 'conversion', {'send_to': 'AW-18149105122/Y9Y7CMiv6qkcEOK7lc5D'}); }
         } else {
           const json = await fsRes.json().catch(() => ({}));
           throw new Error(json.error || 'Submission failed. Please try again.');
