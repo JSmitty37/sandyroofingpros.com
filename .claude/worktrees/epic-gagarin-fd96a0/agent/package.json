@@ -1,0 +1,15 @@
+{
+  "name": "smith-asset-group-agent",
+  "version": "1.0.0",
+  "description": "Smith Asset Group AI Agent — Sandy Roofing Pros SLC Metro Pilot",
+  "main": "agent.js",
+  "type": "module",
+  "scripts": {
+    "start": "node agent.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2"
+  }
+}

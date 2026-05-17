@@ -1,0 +1,152 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl,
+  ogImage = '/images/og-default.jpg',
+} = Astro.props;
+
+const siteUrl = 'https://sandyroofingpros.com';
+const canonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : `${siteUrl}${Astro.url.pathname}`;
+
+const schemaOrg = {
+  "@context": "https://schema.org",
+  "@type": "RoofingContractor",
+  "name": "Sandy Roofing Pros",
+  "description": "Emergency roof leak repair and storm damage restoration serving Sandy, Utah and Salt Lake County. 24/7 availability.",
+  "url": siteUrl,
+  "telephone": "+18015147004",
+  "priceRange": "$$",
+  "image": `${siteUrl}/images/og-default.jpg`,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Sandy",
+    "addressLocality": "Sandy",
+    "addressRegion": "UT",
+    "addressCountry": "US",
+    "postalCode": "84070"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 40.5922,
+    "longitude": -111.8919
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Sandy", "sameAs": "https://en.wikipedia.org/wiki/Sandy,_Utah" },
+    { "@type": "City", "name": "Draper", "sameAs": "https://en.wikipedia.org/wiki/Draper,_Utah" },
+    { "@type": "City", "name": "South Jordan", "sameAs": "https://en.wikipedia.org/wiki/South_Jordan,_Utah" },
+    { "@type": "City", "name": "Murray", "sameAs": "https://en.wikipedia.org/wiki/Murray,_Utah" },
+    { "@type": "City", "name": "Midvale", "sameAs": "https://en.wikipedia.org/wiki/Midvale,_Utah" },
+    { "@type": "City", "name": "West Jordan", "sameAs": "https://en.wikipedia.org/wiki/West_Jordan,_Utah" },
+    { "@type": "City", "name": "Salt Lake City", "sameAs": "https://en.wikipedia.org/wiki/Salt_Lake_City" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Roofing Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Emergency Roof Leak Repair", "areaServed": "Salt Lake County, Utah" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Storm Damage Roof Repair", "areaServed": "Salt Lake County, Utah" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Roof Inspection", "areaServed": "Salt Lake County, Utah" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Insurance Claim Assistance", "areaServed": "Salt Lake County, Utah" } }
+    ]
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "sameAs": [
+    "https://sandyroofingpros.com"
+  ],
+  "knowsAbout": ["Roofing", "Roof Repair", "Storm Damage Repair", "Emergency Roof Leak", "Hail Damage", "Insurance Claims", "Salt Lake County Utah"]
+};
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="google-site-verification" content="BN57UIDtesbzlqyobU6Uq9o5PECz1ZjLu79a2T_N8KI" />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sandy Roofing Pros" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Sandy Roofing Pros — Emergency Roof Repair in Sandy & Salt Lake County, UT" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+  <!-- Geo tags for local SEO -->
+  <meta name="geo.region" content="US-UT" />
+  <meta name="geo.placename" content="Sandy, Utah" />
+  <meta name="geo.position" content="40.5922;-111.8919" />
+  <meta name="ICBM" content="40.5922, -111.8919" />
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Ads tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18149105122"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18149105122');
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1498618978558062');
+    fbq('track','PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1498618978558062&ev=PageView&noscript=1" />
+  </noscript>
+</head>
+<body>
+  <Header />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

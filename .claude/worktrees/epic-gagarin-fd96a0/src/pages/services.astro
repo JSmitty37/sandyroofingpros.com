@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+
+const phone = "(801) 514-7004";
+const phoneHref = "tel:+18015147004";
+---
+
+<BaseLayout
+  title="Roof Repair Services Sandy, UT | Emergency, Storm & Inspection | Sandy Roofing Pros"
+  description="Emergency roof leak repair, storm damage restoration, and roof inspections serving Sandy and Salt Lake County, Utah. Licensed local contractors available 24/7."
+  canonicalUrl="/services"
+>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Roofing Services — Sandy &amp; Salt Lake County, UT</h1>
+      <p>
+        Active leak, storm damage, or a roof you haven't thought about in ten years —
+        here's what local roofers in our area actually do, and when you need them.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== EMERGENCY LEAK REPAIR ===== -->
+  <section class="service-section" id="emergency-leak">
+    <!-- Search Unsplash/Pexels: "roofer emergency repair" OR "roof leak water damage interior" -->
+    <div class="service-section__photo">
+      <img
+        src="/images/service-leak.jpg"
+        alt="Emergency roof leak repair — Sandy, Utah"
+        width="1200"
+        height="320"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+    <div class="container">
+      <div class="service-section__inner">
+        <div>
+          <div class="service-section__icon">🚨</div>
+          <span class="service-section__badge">Most Urgent</span>
+          <h2>Emergency Roof Leak Repair</h2>
+          <p>
+            3 a.m. and water is dripping into your kitchen. It happens more than you'd think
+            out here — a late October storm rolls through the valley fast, and by morning
+            you've got a wet ceiling and no idea where it's coming from.
+          </p>
+          <p>
+            The problem isn't just the wet spot. It's what happens when that water sits:
+            insulation that has to be replaced, drywall that buckles, wood that warps.
+            Mold shows up faster than most people expect. <strong>Roofers in our area are
+            available around the clock</strong> — when you call, you reach someone who can
+            actually get out, not a voicemail box.
+          </p>
+          <ul class="service-bullets">
+            <li>Same-day response — nights and weekends included</li>
+            <li>Emergency tarping first, permanent repair when conditions allow</li>
+            <li>Find the actual source — not just patch what's visible</li>
+            <li>Written documentation for your insurance claim</li>
+          </ul>
+          <a href={phoneHref} class="btn btn--primary btn--lg">
+            📞 Call Now for Emergency Help
+          </a>
+        </div>
+        <div>
+          <div style="background:#FEF2F2; border:1px solid #FECACA; border-radius:8px; padding:2rem;">
+            <h3 style="color:#B91C1C; margin-bottom:1rem;">Stop and Call If You See Any of This</h3>
+            <ul class="service-bullets">
+              <li>Water dripping from the ceiling or a light fixture</li>
+              <li>A stain spreading on drywall after rain</li>
+              <li>Sagging or bubbling ceiling after heavy snow</li>
+              <li>Daylight visible through the attic boards</li>
+            </ul>
+            <p style="margin-top:1rem; font-size:0.9rem; color:#7F1D1D;">
+              These aren't "keep an eye on it" situations. Each one gets worse fast.
+              Call now — same-day help is available.
+            </p>
+            <a href={phoneHref} class="btn btn--primary btn--block" style="margin-top:1rem;">
+              📞 {phone}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STORM DAMAGE REPAIR ===== -->
+  <section class="service-section" id="storm-damage">
+    <!-- Search Unsplash/Pexels: "hail damaged roof shingles closeup" OR "storm damaged residential roof" -->
+    <div class="service-section__photo">
+      <img
+        src="/images/service-storm.jpg"
+        alt="Hail and storm damage to residential roof shingles — Salt Lake County"
+        width="1200"
+        height="320"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+    <div class="container">
+      <div class="service-section__inner">
+        <div>
+          <div style="background:#FFFBEB; border:1px solid #FDE68A; border-radius:8px; padding:2rem;">
+            <h3 style="color:#92400E; margin-bottom:1rem;">Does Your Home Qualify for an Insurance Claim?</h3>
+            <p style="font-size:0.9rem; color:#78350F; margin-bottom:1rem;">
+              A lot of Sandy homeowners don't realize storm damage is covered until it's
+              too late to file. The window matters. Roofers in our area know what adjusters
+              look for and can help you move quickly:
+            </p>
+            <ul class="service-bullets">
+              <li>Photos and measurements that hold up with an adjuster</li>
+              <li>Written damage report in the format insurers want</li>
+              <li>On-site adjuster walk-through if needed</li>
+            </ul>
+            <a href="#contact-section" class="btn btn--accent btn--block" style="margin-top:1.25rem; color:#1E293B;">
+              Get a Free Damage Assessment
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="service-section__icon">🌩️</div>
+          <span class="service-section__badge">Insurance-Assisted</span>
+          <h2>Storm Damage Roof Repair</h2>
+          <p>
+            A July hailstorm in Sandy can drop golf ball-sized hail in fifteen minutes
+            and move on. Your roof takes the hit. From the street it looks fine.
+            Up close, the granules are knocked loose, the shingles are bruised, and
+            you've lost years off the life of that roof — probably without knowing it.
+          </p>
+          <p>
+            Wind damage is subtler. A lifted shingle in the 84070 zip lets water
+            under the deck for months before you see a stain inside. Local roofers
+            know what to look for — and know how to get it covered.
+          </p>
+          <ul class="service-bullets">
+            <li>Hail and wind damage assessment with documentation</li>
+            <li>Shingle, flashing, and gutter repair</li>
+            <li>Full replacement when the damage warrants it</li>
+            <li>Post-storm inspection before you file any claim</li>
+          </ul>
+          <a href={phoneHref} class="btn btn--primary btn--lg">
+            📞 Get a Free Storm Assessment
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROOF INSPECTION ===== -->
+  <section class="service-section" id="roof-inspection">
+    <!-- Search Unsplash/Pexels: "roofer inspecting residential roof shingles" OR "roof inspection contractor" -->
+    <div class="service-section__photo">
+      <img
+        src="/images/service-inspection.jpg"
+        alt="Professional roof inspection — Sandy and Salt Lake County, Utah"
+        width="1200"
+        height="320"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+    <div class="container">
+      <div class="service-section__inner">
+        <div>
+          <div class="service-section__icon">🔍</div>
+          <span class="service-section__badge">Preventative</span>
+          <h2>Roof Inspections</h2>
+          <p>
+            Utah winters don't forgive a bad roof. Snowpack sits up there for weeks.
+            Ice dams form at the eaves. One small flashing gap that didn't matter
+            in August will be leaking by February — and by then it's an emergency
+            instead of a $300 repair.
+          </p>
+          <p>
+            A fall inspection takes an hour. A roofer gets up there, checks the
+            shingles, flashing, gutters, and attic, and tells you exactly what
+            you're dealing with. If something needs fixing, you handle it before
+            the snow flies. If everything's solid, you have peace of mind for the season.
+          </p>
+          <ul class="service-bullets">
+            <li>Shingles, flashing, valleys, and gutters checked from the surface</li>
+            <li>Attic moisture and ventilation inspection</li>
+            <li>Written report with photos — useful for home sales and insurance</li>
+            <li>Honest lifespan estimate, no upsell</li>
+          </ul>
+          <a href={phoneHref} class="btn btn--primary btn--lg">
+            📞 Schedule a Roof Inspection
+          </a>
+        </div>
+        <div>
+          <div style="background:#F0FDF4; border:1px solid #BBF7D0; border-radius:8px; padding:2rem;">
+            <h3 style="color:#14532D; margin-bottom:1rem;">Good Times to Schedule One</h3>
+            <ul class="service-bullets">
+              <li>Before or after buying a home</li>
+              <li>After a hail or windstorm — even if nothing looks wrong</li>
+              <li>Roof is 10+ years old and hasn't been looked at</li>
+              <li>You're seeing granules building up in the gutters</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Form -->
+  <section class="section section--alt" id="contact-section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Free Estimate</span>
+        <h2>Tell Us About Your Roof — Get Help Fast</h2>
+      </div>
+      <LeadForm
+        title="Request a Free Estimate"
+        subtitle="A licensed Salt Lake County roofing contractor will contact you shortly."
+      />
+    </div>
+  </section>
+
+</BaseLayout>

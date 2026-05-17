@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+
+const phone = "(801) 514-7004";
+const phoneHref = "tel:+18015147004";
+
+const localServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Roof Repair in Murray, UT",
+  "description": "Emergency roof repair, storm damage restoration, and roof inspections serving Murray, Utah. Same-day response. Free estimates.",
+  "areaServed": {
+    "@type": "City",
+    "name": "Murray",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "Utah",
+      "sameAs": "https://en.wikipedia.org/wiki/Utah"
+    },
+    "sameAs": "https://en.wikipedia.org/wiki/Murray,_Utah"
+  },
+  "provider": {
+    "@type": "RoofingContractor",
+    "name": "Sandy Roofing Pros",
+    "url": "https://sandyroofingpros.com",
+    "telephone": "+18015147004"
+  },
+  "serviceType": ["Emergency Roof Repair", "Storm Damage Repair", "Hail Damage Repair", "Roof Inspection"]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sandyroofingpros.com" },
+    { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://sandyroofingpros.com/service-area" },
+    { "@type": "ListItem", "position": 3, "name": "Murray, UT", "item": "https://sandyroofingpros.com/areas/murray" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Roof Repair in Murray, UT | Sandy Roofing Pros — Emergency & Storm Damage"
+  description="Emergency roof repair and storm damage restoration in Murray, Utah. Licensed local contractors serving Fashion Place, Vine Street, and all Murray neighborhoods. Free estimates."
+  canonicalUrl="/areas/murray"
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify(localServiceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- Hero -->
+  <section class="area-hero" style="background-image: url('/images/hero-bg.jpg');">
+    <div class="container">
+      <span class="area-badge">📍 Serving Murray, UT — 84107 / 84123</span>
+      <h1>Roof Repair in Murray, UT — Emergency Service &amp; Storm Damage</h1>
+      <p>
+        Murray's older housing stock — much of it built between the 1940s and 1970s —
+        means aging shingles, worn flashing, and roofs that were never designed for today's
+        storm intensity. When hail or heavy rain hits the valley floor, Murray homeowners
+        are often the first to find a leak.
+      </p>
+      <div class="hero__ctas">
+        <a href={phoneHref} class="btn btn--primary btn--lg">📞 Call Now for a Free Estimate</a>
+        <a href="#get-estimate" class="btn btn--outline btn--lg">Get Instant Help Online</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="container">
+      <ul class="trust-bar__list">
+        <li class="trust-bar__item"><span class="trust-bar__icon">⚡</span><span>Same-Day Response</span></li>
+        <li class="trust-bar__item"><span class="trust-bar__icon">✅</span><span>Licensed Utah Contractors</span></li>
+        <li class="trust-bar__item"><span class="trust-bar__icon">💲</span><span>Free Estimates</span></li>
+        <li class="trust-bar__item"><span class="trust-bar__icon">🛡️</span><span>Insurance Claims Assisted</span></li>
+        <li class="trust-bar__item"><span class="trust-bar__icon">📍</span><span>Murray, UT 84107</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- About Murray Roofing -->
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Why Murray Is Different</span>
+        <h2>Murray Roofs Face Unique Challenges</h2>
+        <p>
+          Decades of Utah winters and summers take their toll differently in Murray than
+          in newer suburbs. Here's what local homeowners need to know.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-card__body">
+            <div class="service-card__icon">🏠</div>
+            <h3>Aging Housing Stock</h3>
+            <p>
+              Many Murray homes were built before modern roofing standards. Roofs that
+              are 25–40 years old are past their design life and are far more vulnerable
+              to storm damage, leaks, and UV degradation. A storm that causes minor damage
+              to a new roof can cause major failure on an older one.
+            </p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-card__body">
+            <div class="service-card__icon">🌨️</div>
+            <h3>Valley Floor Storm Exposure</h3>
+            <p>
+              Murray sits in the heart of the Salt Lake Valley, directly in the path of
+              winter inversions and summer thunderstorms. The I-15 corridor sees consistent
+              hail events in late spring and early summer that cause widespread shingle
+              damage across the city.
+            </p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-card__body">
+            <div class="service-card__icon">🔧</div>
+            <h3>Deferred Maintenance Compounds</h3>
+            <p>
+              Small problems on older Murray roofs — a cracked shingle, a loose flashing
+              joint, a clogged valley — become expensive problems fast. What costs a few
+              hundred dollars to fix in September can cost thousands in water damage by
+              February if left alone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">What We Do in Murray</span>
+        <h2>Roofing Services for Murray Homeowners</h2>
+      </div>
+
+      <ul class="why-list">
+        <li class="why-item">
+          <div class="why-item__icon">🚨</div>
+          <div class="why-item__text">
+            <h3>Emergency Leak Repair</h3>
+            <p>Active leak in your Murray home? Same-day response available. We dispatch a licensed contractor to stop the damage before it spreads into your walls, insulation, or ceiling.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">🌩️</div>
+          <div class="why-item__text">
+            <h3>Storm &amp; Hail Damage</h3>
+            <p>Post-storm inspection with full documentation for your insurance adjuster. Fashion Place area, Vine Street corridor, and all Murray neighborhoods covered.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">🔍</div>
+          <div class="why-item__text">
+            <h3>Roof Inspections</h3>
+            <p>Buying or selling in Murray? Get a thorough pre-listing or pre-purchase inspection from a contractor familiar with Murray's older housing stock and its common failure points.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">📋</div>
+          <div class="why-item__text">
+            <h3>Insurance Claim Support</h3>
+            <p>Our contractors document damage correctly the first time — photos, measurements, written report — so Murray homeowners can get the full value of what their policy covers.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Lead Form -->
+  <section class="section" id="get-estimate">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Free Estimate</span>
+        <h2>Get a Murray Roofer Out Fast — It's Free</h2>
+        <p>Fill out the form and a licensed contractor serving Murray will follow up quickly.</p>
+      </div>
+      <LeadForm
+        title="Request a Free Estimate in Murray, UT"
+        subtitle="A licensed local roofing contractor will call you back — usually within the hour."
+        elementId="murray-form"
+      />
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <section class="cta-strip">
+    <div class="container">
+      <h2>Murray Roof Emergency? Call Now.</h2>
+      <p>Same-day response available throughout Murray and Salt Lake County.</p>
+      <div class="cta-strip__actions">
+        <a href={phoneHref} class="btn btn--accent btn--lg">📞 {phone} — Available 24/7</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

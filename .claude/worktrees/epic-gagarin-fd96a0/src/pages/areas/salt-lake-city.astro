@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+
+const phone = "(801) 514-7004";
+const phoneHref = "tel:+18015147004";
+
+const localServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Roof Repair in Salt Lake City, UT",
+  "description": "Emergency roof repair, storm damage restoration, and roof inspections serving Salt Lake City, Utah. Same-day response. Free estimates.",
+  "areaServed": {
+    "@type": "City",
+    "name": "Salt Lake City",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "Utah",
+      "sameAs": "https://en.wikipedia.org/wiki/Utah"
+    },
+    "sameAs": "https://en.wikipedia.org/wiki/Salt_Lake_City"
+  },
+  "provider": {
+    "@type": "RoofingContractor",
+    "name": "Sandy Roofing Pros",
+    "url": "https://sandyroofingpros.com",
+    "telephone": "+18015147004"
+  },
+  "serviceType": ["Emergency Roof Repair", "Storm Damage Repair", "Hail Damage Repair", "Roof Inspection"]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sandyroofingpros.com" },
+    { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://sandyroofingpros.com/service-area" },
+    { "@type": "ListItem", "position": 3, "name": "Salt Lake City, UT", "item": "https://sandyroofingpros.com/areas/salt-lake-city" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Roof Repair in Salt Lake City, UT | Sandy Roofing Pros — Emergency & Storm Damage"
+  description="Emergency roof repair and storm damage restoration in Salt Lake City, Utah. Licensed local contractors serving the Avenues, Sugar House, Liberty Wells, and all SLC neighborhoods. Free estimates."
+  canonicalUrl="/areas/salt-lake-city"
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify(localServiceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- Hero -->
+  <section class="area-hero" style="background-image: url('/images/hero-bg.jpg');">
+    <div class="container">
+      <span class="area-badge">📍 Serving Salt Lake City, UT — All Neighborhoods</span>
+      <h1>Roof Repair in Salt Lake City, UT — Emergency Service &amp; Storm Damage</h1>
+      <p>
+        Salt Lake City's housing stock spans over a century — from century-old Avenues
+        craftsman homes to mid-century Sugar House bungalows to newer Liberty Wells
+        construction. Each era brings its own roofing vulnerabilities, and the
+        Wasatch storm systems that funnel down the canyon don't discriminate by neighborhood.
+      </p>
+      <div class="hero__ctas">
+        <a href={phoneHref} class="btn btn--primary btn--lg">📞 Call Now for a Free Estimate</a>
+        <a href="#get-estimate" class="btn btn--outline btn--lg">Get Instant Help Online</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="container">
+      <ul class="trust-bar__list">
+        <li class="trust-bar__item"><span class="trust-bar__icon">⚡</span><span>Same-Day Response</span></li>
+        <li class="trust-bar__item"><span class="trust-bar__icon">✅</span><span>Licensed Utah Contractors</span></li>
+        <li class="trust-bar__item"><span class="trust-bar__icon">💲</span><span>Free Estimates</span></li>
+        <li class="trust-bar__item"><span class="trust-bar__icon">🛡️</span><span>Insurance Claims Assisted</span></li>
+        <li class="trust-bar__item"><span class="trust-bar__icon">📍</span><span>All SLC Neighborhoods</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- About SLC Roofing -->
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Why SLC Is Different</span>
+        <h2>Salt Lake City's Roofing Challenges Are Unique</h2>
+        <p>
+          Historic neighborhoods, diverse architecture, and proximity to the Wasatch canyons
+          create roofing challenges you won't find in newer suburbs.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-card__body">
+            <div class="service-card__icon">🏛️</div>
+            <h3>Historic & Aging Structures</h3>
+            <p>
+              The Avenues, Capitol Hill, and Marmalade neighborhoods have homes dating
+              back to the late 1800s and early 1900s. These roofs often have original
+              wood sheathing, non-standard pitches, and complex flashing details around
+              dormers and chimneys that require experienced contractors who know what
+              they're looking at.
+            </p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-card__body">
+            <div class="service-card__icon">⛰️</div>
+            <h3>Canyon Wind &amp; Weather Events</h3>
+            <p>
+              Wasatch canyon mouths — Parley's, Emigration, City Creek — funnel wind,
+              rain, and debris directly into east-side SLC neighborhoods. Homes near
+              these canyon outlets see higher wind load events than anywhere else in
+              the county. Wind-lifted shingles are the most common failure mode we
+              see in these areas.
+            </p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-card__body">
+            <div class="service-card__icon">🌡️</div>
+            <h3>Urban Heat Island Effect</h3>
+            <p>
+              SLC's urban density creates significant heat island effects, especially
+              in low-elevation neighborhoods. Dark roofing materials in these areas
+              can reach surface temperatures exceeding 150°F in summer — accelerating
+              asphalt shingle degradation far faster than manufacturer ratings assume.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhoods -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Neighborhoods We Serve</span>
+        <h2>We Cover All of Salt Lake City</h2>
+        <p>From the Avenues to Sugar House, Glendale to Rose Park — we serve every SLC zip code.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card"><div class="service-card__body"><div class="service-card__icon">📍</div><h3>The Avenues</h3><p>Historic homes with complex roof geometry, chimneys, and aging wood sheathing. We know what to look for.</p></div></div>
+        <div class="service-card"><div class="service-card__body"><div class="service-card__icon">📍</div><h3>Sugar House</h3><p>Mid-century housing in a dense urban setting. Storm runoff and aging flat-section roofs are common issues here.</p></div></div>
+        <div class="service-card"><div class="service-card__body"><div class="service-card__icon">📍</div><h3>Liberty Wells &amp; 9th &amp; 9th</h3><p>Mixed housing stock from multiple eras. Quick response for emergency leaks in this tight-knit neighborhood.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">What We Do in Salt Lake City</span>
+        <h2>Roofing Services for SLC Homeowners</h2>
+      </div>
+
+      <ul class="why-list">
+        <li class="why-item">
+          <div class="why-item__icon">🚨</div>
+          <div class="why-item__text">
+            <h3>Emergency Leak Repair</h3>
+            <p>Active leak in your SLC home? Same-day response across all Salt Lake City neighborhoods. We stop the water first, then assess the full scope of damage.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">🌩️</div>
+          <div class="why-item__text">
+            <h3>Storm &amp; Hail Damage</h3>
+            <p>Post-storm inspection with documentation for your insurance adjuster. We serve every SLC neighborhood from Glendale to the East Bench.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">🔍</div>
+          <div class="why-item__text">
+            <h3>Roof Inspections</h3>
+            <p>SLC's historic housing stock requires contractors who understand older construction methods. Our inspections go beyond the surface to assess the full roofing system.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">📋</div>
+          <div class="why-item__text">
+            <h3>Insurance Claim Support</h3>
+            <p>Full damage documentation — photos, measurements, written assessment — so SLC homeowners can get their claims processed without disputes or underpayment.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Lead Form -->
+  <section class="section section--alt" id="get-estimate">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Free Estimate</span>
+        <h2>Get a Salt Lake City Roofer Out Fast — It's Free</h2>
+        <p>Fill out the form and a licensed contractor serving SLC will follow up quickly.</p>
+      </div>
+      <LeadForm
+        title="Request a Free Estimate in Salt Lake City, UT"
+        subtitle="A licensed local roofing contractor will call you back — usually within the hour."
+        elementId="slc-form"
+      />
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <section class="cta-strip">
+    <div class="container">
+      <h2>Salt Lake City Roof Emergency? Call Now.</h2>
+      <p>Same-day response available across all Salt Lake City neighborhoods.</p>
+      <div class="cta-strip__actions">
+        <a href={phoneHref} class="btn btn--accent btn--lg">📞 {phone} — Available 24/7</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

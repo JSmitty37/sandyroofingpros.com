@@ -1,0 +1,29 @@
+---
+const phone = "(801) 514-7004";
+const phoneHref = "tel:+18015147004";
+---
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+
+      <a href="/" class="header-brand">
+        <span class="header-brand__name">Sandy Roofing Pros</span>
+        <span class="header-brand__tagline">Sandy &amp; Salt Lake County, Utah</span>
+      </a>
+
+      <nav class="header-nav" aria-label="Main navigation">
+        <a href="/" class="header-nav__link">Home</a>
+        <a href="/services" class="header-nav__link">Services</a>
+        <a href="/service-area" class="header-nav__link">Service Area</a>
+        <a href="/contact" class="header-nav__link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href={phoneHref} class="header-phone" aria-label="Call Sandy Roofing Pros">{phone}</a>
+        <a href={phoneHref} class="btn btn--primary btn--header">Call Now</a>
+      </div>
+
+    </div>
+  </div>
+</header>
