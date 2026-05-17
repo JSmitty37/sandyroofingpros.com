@@ -4,51 +4,13 @@ import LeadForm from '../../components/LeadForm.astro';
 
 const phone = "(801) 514-7004";
 const phoneHref = "tel:+18015147004";
-
-const localServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Roof Repair in Draper, UT",
-  "description": "Emergency roof repair, storm damage restoration, and roof inspections serving Draper, Utah. Same-day response. Free estimates.",
-  "areaServed": {
-    "@type": "City",
-    "name": "Draper",
-    "containedInPlace": {
-      "@type": "State",
-      "name": "Utah",
-      "sameAs": "https://en.wikipedia.org/wiki/Utah"
-    },
-    "sameAs": "https://en.wikipedia.org/wiki/Draper,_Utah"
-  },
-  "provider": {
-    "@type": "RoofingContractor",
-    "name": "Sandy Roofing Pros",
-    "url": "https://sandyroofingpros.com",
-    "telephone": "+18015147004"
-  },
-  "serviceType": ["Emergency Roof Repair", "Storm Damage Repair", "Hail Damage Repair", "Roof Inspection"]
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sandyroofingpros.com" },
-    { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://sandyroofingpros.com/service-area" },
-    { "@type": "ListItem", "position": 3, "name": "Draper, UT", "item": "https://sandyroofingpros.com/areas/draper" }
-  ]
-};
 ---
 
 <BaseLayout
-  title="Roof Repair in Draper, UT | Sandy Roofing Pros — Emergency & Storm Damage"
+  title="Roof Repair in Draper, UT | Sandy Roofing Pros — Emergency &amp; Storm Damage"
   description="Emergency roof repair and storm damage restoration in Draper, Utah. Licensed local contractors serving Suncrest, Bangerter Highway, and all Draper neighborhoods. Free estimates."
   canonicalUrl="/areas/draper"
 >
-
-  <!-- Local Service + Breadcrumb structured data -->
-  <script type="application/ld+json" set:html={JSON.stringify(localServiceSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <!-- Hero -->
   <section class="area-hero" style="background-image: url('/images/hero-bg.jpg');">
