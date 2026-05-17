@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+
+const phone = "(801) 514-7004";
+const phoneHref = "tel:+18015147004";
+
+const localServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Roof Repair in Cottonwood Heights, UT",
+  "description": "Emergency roof repair, storm damage restoration, and roof inspections serving Cottonwood Heights, Utah. Same-day response. Free estimates.",
+  "areaServed": {
+    "@type": "City",
+    "name": "Cottonwood Heights",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "Utah",
+      "sameAs": "https://en.wikipedia.org/wiki/Utah"
+    },
+    "sameAs": "https://en.wikipedia.org/wiki/Cottonwood_Heights,_Utah"
+  },
+  "provider": {
+    "@type": "RoofingContractor",
+    "name": "Sandy Roofing Pros",
+    "url": "https://sandyroofingpros.com",
+    "telephone": "+18015147004"
+  },
+  "serviceType": ["Emergency Roof Repair", "Storm Damage Repair", "Hail Damage Repair", "Roof Inspection", "Insurance Claim Assistance"]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sandyroofingpros.com" },
+    { "@type": "ListItem", "position": 2, "name": "Service Area", "item": "https://sandyroofingpros.com/service-area" },
+    { "@type": "ListItem", "position": 3, "name": "Cottonwood Heights, UT", "item": "https://sandyroofingpros.com/areas/cottonwood-heights" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Roof Repair in Cottonwood Heights, UT | Sandy Roofing Pros — Emergency & Storm Damage"
+  description="Emergency roof repair and storm damage restoration in Cottonwood Heights, Utah. Licensed local contractors serving Butler, Holladay border, and all Cottonwood Heights neighborhoods. Free estimates — 84093 & 84121."
+  canonicalUrl="/areas/cottonwood-heights"
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify(localServiceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- Hero -->
+  <section class="area-hero" style="background-image: url('/images/hero-bg.jpg');">
+    <div class="container">
+      <span class="area-badge">📍 Serving Cottonwood Heights, UT — 84093 &amp; 84121</span>
+      <h1>Roof Repair in Cottonwood Heights, UT — Emergency Service &amp; Storm Damage</h1>
+      <p>
+        Cottonwood Heights sits at the mouth of Big and Little Cottonwood Canyons — some of the
+        most storm-active terrain in Salt Lake County. Elevation, canyon winds, and direct exposure
+        to storm cells tracking off the Wasatch Range make this one of the hardest zip codes on
+        residential roofing in the valley. When something goes wrong, you need a roofer who
+        knows this area.
+      </p>
+      <div class="hero__ctas">
+        <a href={phoneHref} class="btn btn--primary btn--lg">📞 Call Now for a Free Estimate</a>
+        <a href="#get-estimate" class="btn btn--outline btn--lg">Get Instant Help Online</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="container">
+      <ul class="trust-bar__list">
+        <li class="trust-bar__item"><span class="trust-bar__icon">⚡</span><span>Same-Day Response</span></li>
+        <li class="trust-bar__item"><span class="trust-bar__icon">✅</span><span>Licensed Utah Contractors</span></li>
+        <li class="trust-bar__item"><span class="trust-bar__icon">💲</span><span>Free Estimates</span></li>
+        <li class="trust-bar__item"><span class="trust-bar__icon">🛡️</span><span>Insurance Claims Assisted</span></li>
+        <li class="trust-bar__item"><span class="trust-bar__icon">📍</span><span>Cottonwood Heights, UT 84093 / 84121</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Local Context -->
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Why Cottonwood Heights Is Different</span>
+        <h2>Canyon Exposure Changes Everything for Your Roof</h2>
+        <p>
+          The terrain and elevation of Cottonwood Heights create roofing conditions unlike most
+          of the Salt Lake Valley floor.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-card__body">
+            <div class="service-card__icon">🏔️</div>
+            <h3>Canyon Wind Loading</h3>
+            <p>
+              Winds funneling out of Big and Little Cottonwood Canyons can be dramatically stronger
+              than wind speeds in Sandy or Murray. Homes on the east side of Cottonwood Heights —
+              especially above 6200 South — see wind uplift forces that test shingles and flashing
+              that would hold fine at lower elevations.
+            </p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-card__body">
+            <div class="service-card__icon">❄️</div>
+            <h3>Snow Load and Ice Dams</h3>
+            <p>
+              Higher elevation means more snowfall and longer snow retention. Ice dams — where
+              melting roof snow refreezes at the eaves and backs water up under shingles — are
+              particularly common in Cottonwood Heights. Homes with insufficient attic insulation
+              are vulnerable every winter.
+            </p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-card__body">
+            <div class="service-card__icon">⛈️</div>
+            <h3>Direct Storm Path</h3>
+            <p>
+              Summer thunderstorms that build over the Wasatch Range hit Cottonwood Heights first
+              before tracking into the valley. This means larger hail, higher rainfall intensity,
+              and more frequent direct lightning. A storm that barely touches Sandy may be a full
+              hail event in Cottonwood Heights.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">What We Do in Cottonwood Heights</span>
+        <h2>Roofing Services for Cottonwood Heights Homeowners</h2>
+      </div>
+
+      <ul class="why-list">
+        <li class="why-item">
+          <div class="why-item__icon">🚨</div>
+          <div class="why-item__text">
+            <h3>Emergency Leak Repair</h3>
+            <p>Active leak in your Cottonwood Heights home? Same-day response available. We dispatch a licensed contractor to stop the damage before it spreads to your ceiling structure, walls, or insulation.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">🌩️</div>
+          <div class="why-item__text">
+            <h3>Storm &amp; Hail Damage</h3>
+            <p>Post-storm inspection with full documentation for your insurance adjuster. We know the specific storm patterns that affect 84093 and 84121 neighborhoods and document damage correctly the first time.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">❄️</div>
+          <div class="why-item__text">
+            <h3>Ice Dam Repair</h3>
+            <p>Ice dams are a Cottonwood Heights problem specifically. We assess the damage, address the immediate leak, and advise on the attic insulation improvements that prevent recurrence.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">🔍</div>
+          <div class="why-item__text">
+            <h3>Roof Inspections</h3>
+            <p>Buying or selling in Cottonwood Heights? Canyon-area homes need an inspector who understands the specific stress factors — wind loading, snow accumulation, and Wasatch-facing UV exposure.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item__icon">📋</div>
+          <div class="why-item__text">
+            <h3>Insurance Claim Support</h3>
+            <p>Storm damage claims in Cottonwood Heights often involve significant dollar amounts. We document damage with the precision insurance adjusters expect — and we'll be there with you during the adjuster visit.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Neighborhoods -->
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Neighborhoods We Serve</span>
+        <h2>All of Cottonwood Heights — Including the Hill</h2>
+      </div>
+      <p style="max-width:720px; margin: 0 auto 1.5rem; text-align:center; color:#374151;">
+        We serve all Cottonwood Heights neighborhoods: Butler area, Holladay border, Canyon Rim,
+        Creek Road, Fort Union corridor, and the hillside neighborhoods above 6200 South near
+        the Cottonwood Canyon entrance. ZIP codes 84093 and 84121.
+      </p>
+      <p style="max-width:720px; margin: 0 auto 1.5rem; text-align:center; color:#374151;">
+        We also serve neighboring communities including <a href="/areas/midvale">Midvale</a>,
+        <a href="/areas/murray">Murray</a>, <a href="/areas/draper">Draper</a>, and
+        <a href="/areas/sandy">Sandy</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Lead Form -->
+  <section class="section section--alt" id="get-estimate">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__eyebrow">Free Estimate</span>
+        <h2>Get a Cottonwood Heights Roofer Out Fast — It's Free</h2>
+        <p>Fill out the form and a licensed contractor serving Cottonwood Heights will follow up quickly.</p>
+      </div>
+      <LeadForm
+        title="Request a Free Estimate in Cottonwood Heights, UT"
+        subtitle="A licensed local roofing contractor will call you back — usually within the hour."
+        elementId="cottonwood-heights-form"
+      />
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <section class="cta-strip">
+    <div class="container">
+      <h2>Cottonwood Heights Roof Emergency? Call Now.</h2>
+      <p>Same-day response available throughout Cottonwood Heights, Canyon Rim, and surrounding Salt Lake County neighborhoods.</p>
+      <div class="cta-strip__actions">
+        <a href={phoneHref} class="btn btn--accent btn--lg">📞 {phone} — Available 24/7</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
